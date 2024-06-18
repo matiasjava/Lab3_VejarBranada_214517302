@@ -1,17 +1,12 @@
-package TDAs;
+package org.Proyecto.TDAs;
 
-public class Section extends Station {
+public class Section {
     Station point1;
     Station point2;
-    int distance;
-    int cost;
+    public int distance;
+    public int cost;
 
-    public Section(int id, String name, String type, int stopTime) {
-        super(id, name, type, stopTime);
-    }
-
-    public Section(int id, String name, String type, int stopTime, Station point1, Station point2, int distance, int cost) {
-        super(id, name, type, stopTime);
+    public Section(Station point1, Station point2, int distance, int cost) {
         this.point1 = point1;
         this.point2 = point2;
         this.distance = distance;
