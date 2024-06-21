@@ -1,10 +1,16 @@
-package org.Proyecto.TDAs;
+package org.Proyecto.TDAs.Clases;
 
-public class Section {
+import org.Proyecto.TDAs.Interfaces.SectionInterface;
+
+public class Section implements SectionInterface {
     Station point1;
     Station point2;
     public int distance;
     public int cost;
+
+
+    public Section() {
+    }
 
     public Section(Station point1, Station point2, int distance, int cost) {
         this.point1 = point1;
@@ -27,5 +33,21 @@ public class Section {
 
     public int getCost() {
         return cost;
+    }
+
+    public void setPoint1(Station point1) {
+        this.point1 = point1;
+    }
+
+    public void setPoint2(Station point2) {
+        this.point2 = point2;
+    }
+
+    public void setDistance(int distance) {
+        this.distance = distance;
+    }
+
+    public void setCost(int cost) {
+        this.cost = cost;
     }
 }
