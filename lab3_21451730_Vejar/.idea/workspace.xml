@@ -5,17 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="19aa4bbf-f7a4-498a-9c9e-9d1b3fc7d33f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Line.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/Line.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/PassengerCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/PassengerCar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Section.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/Section.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Station.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/Station.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Subway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/Subway.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Train.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/Train.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/Line.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/Line.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/PassengerCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/PassengerCar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Interfaces/LineInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Interfaces/LineInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +45,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Gradle.lab3_21451730_Vejar [:Main.main()].executor": "Run",
+    "Gradle.lab3_21451730_Vejar [:Main.main()].executor": "Debug",
     "Gradle.labParadigmas3 [:Main.main()].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
@@ -60,21 +54,6 @@
     "onboarding.tips.debug.path": "C:/Users/WASUPRE/Desktop/labParadigmas3/src/main/java/org/example/Main.java"
   }
 }]]></component>
-  <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="lab3_21451730_Vejar" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="lab3_21451730_Vejar" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
