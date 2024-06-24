@@ -1,9 +1,14 @@
 package org.Proyecto;
 
+import java.util.ArrayList;
+import java.util.List;
 
+
+import org.Proyecto.TDAs.Clases.LineRegular;
 import org.Proyecto.TDAs.Clases.Section;
 import org.Proyecto.TDAs.Clases.Station;
-import org.Proyecto.TDAs.Clases.Line;
+import org.Proyecto.TDAs.Interfaces.LineInterface;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -22,9 +27,15 @@ public class Main {
         Section S5 = new Section(ST5,ST6, 55, 35);
         Section S6 = new Section(ST6,ST7, 45, 15);
 
-        Section[] lista = {S1,S2,S3,S4,S5,S6};
+        List<Section> lista = new ArrayList<>();
+        lista.add(S1);
+        lista.add(S2);
+        lista.add(S3);
+        lista.add(S4);
+        lista.add(S5);
+        lista.add(S6);
 
-        Line L1 = new Line(0,"Linea 1", "BCS-43",lista);
+        LineRegular L1 = new LineRegular(0,"Linea 1", "BCS-43",lista);
         int largo = L1.line_Length();
         int costo = L1.line_Cost();
         int distancia = L1.line_Section_Length("ULA", "Santa lucia");
@@ -32,9 +43,11 @@ public class Main {
 
 
 
+
         System.out.println(largo);
         System.out.println(costo);
         System.out.println(distancia);
         System.out.println(costo2);
+        System.out.println(L1.toString());
     }
 }
