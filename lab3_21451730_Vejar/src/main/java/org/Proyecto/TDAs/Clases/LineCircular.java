@@ -10,15 +10,17 @@ public class LineCircular implements LineInterface {
     public String name;
     public String railType;
     public List<Section> sections;
+    public List<Train> trains;
 
     public LineCircular() {
     }
 
-    public LineCircular(int id, String name, String railType, List<Section> sections) {
+    public LineCircular(int id, String name, String railType, List<Section> sections, List<Train> trains) {
         this.id = id;
         this.name = name;
         this.railType = railType;
         this.sections = sections;
+        this.trains = trains;
     }
 
     public int getId() {
@@ -51,6 +53,14 @@ public class LineCircular implements LineInterface {
 
     public void setSections(List<Section> sections) {
         this.sections = sections;
+    }
+
+    public List<Train> getTrains() {
+        return trains;
+    }
+
+    public void setTrains(List<Train> trains) {
+        this.trains = trains;
     }
 
     public int line_Length() {

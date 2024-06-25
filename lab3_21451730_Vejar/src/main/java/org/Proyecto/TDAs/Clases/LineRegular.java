@@ -10,6 +10,7 @@ public class LineRegular implements LineInterface {
     public String name;
     public String railType;
     public List<Section> sections;
+    public List<Train> trains;
 
     public LineRegular() {
     }

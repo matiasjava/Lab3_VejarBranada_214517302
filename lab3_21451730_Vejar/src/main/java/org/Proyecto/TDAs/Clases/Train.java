@@ -9,16 +9,18 @@ public class Train {
     public int speed;
     public int stationStaytime;
     public List<PassengerCar> carlist;
+    public Driver driverTrain;
 
     public Train() {
     }
 
-    public Train(int id, String trainMaker, int speed, int stationStaytime, List<PassengerCar> carlist) {
+    public Train(int id, String trainMaker, int speed, int stationStaytime, List<PassengerCar> carlist, Driver driverTrain) {
         this.id = id;
         this.trainMaker = trainMaker;
         this.speed = speed;
         this.stationStaytime = stationStaytime;
         this.carlist = carlist;
+        this.driverTrain = driverTrain;
     }
 
     public int getId() {
@@ -59,6 +61,14 @@ public class Train {
 
     public void setCarlist(List<PassengerCar> carlist) {
         this.carlist = carlist;
+    }
+
+    public Driver getDriverTrain() {
+        return driverTrain;
+    }
+
+    public void setDriverTrain(Driver driverTrain) {
+        this.driverTrain = driverTrain;
     }
 
     public void addCar(PassengerCar carro, int position){

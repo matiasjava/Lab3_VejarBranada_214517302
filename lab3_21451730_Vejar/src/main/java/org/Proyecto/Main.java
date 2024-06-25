@@ -9,6 +9,8 @@ import org.Proyecto.TDAs.Clases.Section;
 import org.Proyecto.TDAs.Clases.Station;
 import org.Proyecto.TDAs.Interfaces.LineInterface;
 
+import javax.swing.*;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -42,12 +44,31 @@ public class Main {
         int costo2 = L1.line_Section_Cost("ULA", "Santa lucia");
 
 
-
-
         System.out.println(largo);
         System.out.println(costo);
         System.out.println(distancia);
         System.out.println(costo2);
         System.out.println(L1.toString());
+
+
+        mainMenu menu = new mainMenu();
+        JFrame frame = new JFrame("Menu lab 3");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setContentPane(menu);
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+
+        /**
+
+        MainWindow mw = new MainWindow();
+        mw.setVisible(true);
+        */
+
+
     }
+
+
+
+
 }

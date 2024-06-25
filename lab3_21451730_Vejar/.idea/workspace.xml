@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="19aa4bbf-f7a4-498a-9c9e-9d1b3fc7d33f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/LineRegular.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/Line.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/LineCircular.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/LineCircular.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/LineRegular.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/LineRegular.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/Subway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/Subway.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/Train.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/Train.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Interfaces/LineInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Interfaces/LineInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +31,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://F:/jdk-11.0.23+9/lib/src.zip!/java.base/java/lang/Object.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -57,6 +57,11 @@
     &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/WASUPRE/Desktop/labParadigmas3/src/main/java/org/example/Main.java&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\WASUPRE\Desktop\Lab 3 paradigmas\Lab3_VejarBranada_214517302\lab3_21451730_Vejar\src\main\java\org\Proyecto" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -75,6 +80,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
           <line>13</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/Proyecto/Menus/Main.java</url>
+          <line>9</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
