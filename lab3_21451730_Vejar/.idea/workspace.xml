@@ -6,10 +6,24 @@
   <component name="ChangeListManager">
     <list default="true" id="19aa4bbf-f7a4-498a-9c9e-9d1b3fc7d33f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/LineCircular.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/LineCircular.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/LineRegular.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/LineRegular.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/Subway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/Subway.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/Train.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/Train.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/Driver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/LineCircular.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/LineRegular.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/PassengerCar.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/Section.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/Station.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/Subway.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/Train.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Interfaces/DriverInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Interfaces/LineInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Interfaces/PassengerCarInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Interfaces/SectionInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Interfaces/StationInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Interfaces/SubwayInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Interfaces/TrainInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/mainMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/mainMenu.jfd" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +34,23 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="lab3_21451730_Vejar" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -33,6 +64,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/org/Proyecto/trenes.txt" root0="FORCE_HIGHLIGHTING" />
     <setting file="jar://F:/jdk-11.0.23+9/lib/src.zip!/java.base/java/lang/Object.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -53,13 +85,17 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/WASUPRE/Desktop/labParadigmas3&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/WASUPRE/Desktop/labParadigmas3/src/main/java/org/example/Main.java&quot;
+    &quot;last_opened_file_path&quot;: &quot;F:/menuLab3&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/WASUPRE/Desktop/labParadigmas3/src/main/java/org/example/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\WASUPRE\Desktop\Lab 3 paradigmas\Lab3_VejarBranada_214517302\lab3_21451730_Vejar\src\main\java\org\Proyecto" />
+      <recent name="C:\Users\WASUPRE\Desktop\Lab 3 paradigmas\Lab3_VejarBranada_214517302\lab3_21451730_Vejar\src\main\java\org\Proyecto\TDAs" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

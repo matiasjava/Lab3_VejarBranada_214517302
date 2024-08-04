@@ -1,14 +1,13 @@
 package org.Proyecto.TDAs.Interfaces;
 
-import org.Proyecto.TDAs.Clases.Section;
-import org.Proyecto.TDAs.Clases.Station;
-import org.Proyecto.TDAs.Clases.LineRegular;
-import org.Proyecto.TDAs.Clases.LineCircular;
+import org.Proyecto.TDAs.Clases.*;
 
 import javax.sound.sampled.Line;
+import java.util.ArrayList;
 import java.util.List;
 
 public interface LineInterface {
+    public List<Train> trains = new ArrayList<>();
 
     public int getId();
     public String getName();

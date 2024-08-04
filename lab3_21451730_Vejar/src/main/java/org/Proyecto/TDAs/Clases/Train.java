@@ -14,13 +14,12 @@ public class Train {
     public Train() {
     }
 
-    public Train(int id, String trainMaker, int speed, int stationStaytime, List<PassengerCar> carlist, Driver driverTrain) {
+    public Train(int id, String trainMaker, int speed, int stationStaytime, List<PassengerCar> carlist) {
         this.id = id;
         this.trainMaker = trainMaker;
         this.speed = speed;
         this.stationStaytime = stationStaytime;
         this.carlist = carlist;
-        this.driverTrain = driverTrain;
     }
 
     public int getId() {
@@ -94,13 +93,10 @@ public class Train {
         if(carlist.size()<2){
             return false;
         }
-        if(carlist.isEmpty()){
+        if(!carlist.get(0).carType.equals("tr")){
             return false;
         }
-        if(!carlist.get(0).carType.equals("t")){
-            return false;
-        }
-        if(!carlist.get(carlist.size()-1).carType.equals("t")){
+        if(!carlist.get(carlist.size()-1).carType.equals("tr")){
             return false;
         }
 
@@ -110,10 +106,10 @@ public class Train {
             listaRevisar.add(carlist.get(i));
         }
 
-        String primerElemento = carlist.get(0).carType;
+        String primerElemento = listaRevisar.get(0).getCarType();
 
-        for (PassengerCar elemento : carlist) {
-            if (!elemento.carType.equals(primerElemento)) {
+        for(int j=0;j<listaRevisar.size();j++) {
+            if (!listaRevisar.get(j).getCarType().equals("ct")) {
                 return false;
             }
         }

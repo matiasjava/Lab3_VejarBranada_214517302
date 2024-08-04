@@ -1,0 +1,10 @@
+0,Isaac Newton,AFUSA
+1,Nikola Tesla,AFUSA
+2,Arquimedes,AFUSA
+3,Albert Einstein,AFUSA
+Sueltos
+4,Galileo Galilei,AFUSA
+5,Louis Pasteur,AFUSA
+6,Alan Turing,AFUSA
+7,Stephen Hawking,AFUSA
+Termino

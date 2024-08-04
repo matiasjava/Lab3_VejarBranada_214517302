@@ -11,6 +11,7 @@ public class LineRegular implements LineInterface {
     public String railType;
     public List<Section> sections;
     public List<Train> trains;
+    public List<Driver> drivers;
 
     public LineRegular() {
     }
@@ -52,6 +53,22 @@ public class LineRegular implements LineInterface {
 
     public void setSections(List<Section> sections) {
         this.sections = sections;
+    }
+
+    public List<Train> getTrains() {
+        return trains;
+    }
+
+    public void setTrains(List<Train> trains) {
+        this.trains = trains;
+    }
+
+    public List<Driver> getDrivers() {
+        return drivers;
+    }
+
+    public void setDrivers(List<Driver> drivers) {
+        this.drivers = drivers;
     }
 
     public int line_Length() {

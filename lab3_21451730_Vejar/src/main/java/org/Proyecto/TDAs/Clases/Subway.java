@@ -4,6 +4,7 @@ import org.Proyecto.TDAs.Interfaces.LineInterface;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
 
 public class Subway {
     public int id;
@@ -15,12 +16,9 @@ public class Subway {
     public Subway() {
     }
 
-    public Subway(int id, String name, List<Train> trainListSubway, List<Driver> driverListSubway, List<LineInterface> lineListSubway) {
+    public Subway(int id, String name) {
         this.id = id;
         this.name = name;
-        this.trainListSubway = trainListSubway;
-        this.driverListSubway = driverListSubway;
-        this.lineListSubway = lineListSubway;
     }
 
     public int getId() {
@@ -63,6 +61,30 @@ public class Subway {
         this.driverListSubway = driverListSubway;
     }
 
+    public Station BuscarStationPorId(int id){
+        List<Section> Secciones = new ArrayList<>();
+
+        for(int i= 0;i<lineListSubway.size();i++){
+            for(int j = 0; j<lineListSubway.get(i).getSections().size();j++){
+                Secciones.add(lineListSubway.get(i).getSections().get(j));
+            }
+        }
+        for(int k=0;k<Secciones.size();k++){
+            if(id == Secciones.get(k).getPoint1().getId()){
+                return Secciones.get(k).getPoint1();
+            }
+            if(id == Secciones.get(k).getPoint2().getId()){
+                return Secciones.get(k).getPoint2();
+            }
+            else{
+                return null;
+            }
+        }
+        return null;
+    }
+
+
+
     public void addTrain(List<Train> trainList) {
         int tamanoArreglo = trainList.size();
 
@@ -93,9 +115,9 @@ public class Subway {
         elString = new StringBuilder("Subway" + "\n" + "Id = " + Integer.toString(id) + "\n" + "Nombre = " + name + "\n");
         for (int i = 0; i < lineListSubway.size(); i++) {
             tamano = lineListSubway.get(i).getSections().size();
-            elString.append("Linea").append("\n").append("Id = ").append(Integer.toString(lineListSubway.get(i).getId())).append("Nombre = ").append(lineListSubway.get(i).getName()).append("\n");
+            elString.append("Linea").append("\n").append("Id = ").append(Integer.toString(lineListSubway.get(i).getId())).append(" Nombre =  ").append(lineListSubway.get(i).getName()).append("\n");
             for (int j = 0; j < tamano; j++) {
-                elString.append(lineListSubway.get(i).getSections().get(j).point1.name).append("--> ");
+                elString.append(lineListSubway.get(i).getSections().get(j).point1.name).append(" --> ");
             }
         }
         for (int k = 0; k < driverListSubway.size(); k++) {
@@ -108,16 +130,16 @@ public class Subway {
         return elString.toString();
     }
 
-    public void assignTrainToLine(Train train, LineRegular line){
-        line.trains.add(train);
-    }
-
-    public void assignTrainToLine(Train train, LineCircular line){
+    public void assignTrainToLine(Train train, LineInterface line){
         line.trains.add(train);
     }
 
 
-    public void assignDriverToTrain(){
+
+    public void assignDriverToTrain(Train train, Driver driver, Date departureTime, Station departreStation, Station arrivalStation){
+
+
+
 
 
     }
