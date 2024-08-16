@@ -23,6 +23,11 @@ public interface LineInterface {
     public int line_Section_Cost(String station1_Name, String station2_Name);
     public void line_Add_Section(Section section);
     public boolean isLine();
+    public List<Driver> getDrivers();
+    public List<Train> getTrains();
+    public void setTrains(List<Train> trains);
+    public boolean tieneRepetidos(List<Integer> lista);
+
 }
 
 

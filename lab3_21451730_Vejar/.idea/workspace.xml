@@ -7,23 +7,20 @@
     <list default="true" id="19aa4bbf-f7a4-498a-9c9e-9d1b3fc7d33f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/Driver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/LineCircular.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/LineRegular.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/PassengerCar.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/Section.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/Station.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/Subway.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/Train.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Interfaces/DriverInterface.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Interfaces/LineInterface.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Interfaces/PassengerCarInterface.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Interfaces/SectionInterface.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Interfaces/StationInterface.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Interfaces/SubwayInterface.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Interfaces/TrainInterface.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/mainMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/mainMenu.jfd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/LineCircular.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/LineCircular.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/LineRegular.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/LineRegular.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/Section.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/Section.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/Subway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Clases/Subway.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Interfaces/DriverInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Interfaces/DriverInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Interfaces/LineInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Interfaces/LineInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Interfaces/PassengerCarInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Interfaces/PassengerCarInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Interfaces/SectionInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Interfaces/SectionInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Interfaces/SubwayInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Interfaces/SubwayInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Interfaces/TrainInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/TDAs/Interfaces/TrainInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/lineas.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/lineas.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/mainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/mainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/mainMenu.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/mainMenu.jfd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Proyecto/trenes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Proyecto/trenes.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -7,6 +7,7 @@ public class Section implements SectionInterface {
     Station point2;
     public int distance;
     public int cost;
+    public int tiempoDeLlegada;
 
 
     public Section() {
@@ -49,5 +50,12 @@ public class Section implements SectionInterface {
 
     public void setCost(int cost) {
         this.cost = cost;
+    }
+
+    public int getTiempoDeLlegada() {
+        return tiempoDeLlegada;
+    }
+    public void setTiempoDeLlegada(int tiempoDeLlegada) {
+        this.tiempoDeLlegada = tiempoDeLlegada;
     }
 }

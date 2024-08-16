@@ -9,9 +9,9 @@ public class LineRegular implements LineInterface {
     public int id;
     public String name;
     public String railType;
-    public List<Section> sections;
-    public List<Train> trains;
-    public List<Driver> drivers;
+    public List<Section> sections = new ArrayList<>();
+    public List<Train> trains = new ArrayList<>();
+    public List<Driver> drivers = new ArrayList<>();
 
     public LineRegular() {
     }
@@ -22,6 +22,7 @@ public class LineRegular implements LineInterface {
         this.railType = railType;
         this.sections = sections;
     }
+
 
     public int getId() {
         return id;

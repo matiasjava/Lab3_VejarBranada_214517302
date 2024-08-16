@@ -337,32 +337,47 @@ new FormModel {
 		} )
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
 			"$layoutConstraints": "hidemode 3"
-			"$columnConstraints": "[fill][fill][fill][fill][fill][fill][fill][fill]"
+			"$columnConstraints": "[fill][fill][fill][fill][fill][fill][fill]"
 			"$rowConstraints": "[][][][][][][][]"
 		} ) {
 			name: "frame6"
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button35"
-				"text": "whereIsTrain"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label34"
+				"text": "Seleccion actual: Por ID"
 			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
-				"value": "cell 1 2 3 2"
+				"value": "cell 0 0"
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button36"
-				"text": "trainPath"
+				name: "button115"
+				"text": "whereIsTrain"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "Volvera27", true ) )
 			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
-				"value": "cell 1 4 3 2"
+				"value": "cell 0 1"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button116"
+				"text": "trainPath"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "Volvera30", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 2"
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button37"
 				"text": "Volver"
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "VolverDesdeTrains", true ) )
 			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
-				"value": "cell 7 5"
+				"value": "cell 0 3"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button118"
+				"text": "Train por objeto"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "Frame26Volver", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 4"
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 25, 925 )
-			"size": new java.awt.Dimension( 400, 280 )
+			"location": new java.awt.Point( 1190, 1795 )
+			"size": new java.awt.Dimension( 165, 225 )
 		} )
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
 			"$layoutConstraints": "hidemode 3"
@@ -493,7 +508,7 @@ new FormModel {
 				"value": "cell 1 5"
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 20, 1205 )
+			"location": new java.awt.Point( 10, 1155 )
 			"size": new java.awt.Dimension( 405, 245 )
 		} )
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
@@ -1580,6 +1595,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button96"
 				"text": "AssignDriverToTrain"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "AssignDriver3", true ) )
 			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
 				"value": "cell 1 3"
 			} )
@@ -1823,6 +1839,1413 @@ new FormModel {
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 645, 1700 )
 			"size": new java.awt.Dimension( 225, 235 )
+		} )
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+			"$layoutConstraints": "hidemode 3"
+			"$columnConstraints": "[fill][fill]"
+			"$rowConstraints": "[][][][][]"
+		} ) {
+			name: "frame28"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label35"
+				"text": "Se debe asignar estaciones de partida y llegada del conductor"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 0"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button97"
+				"text": "Buscar estacion por ID"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "BusquedaPorID", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 1"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button105"
+				"text": "Buscar estacion por objeto"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "BusquedaPorObjeto", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 2"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox31"
+				"model": new javax.swing.DefaultComboBoxModel {
+					selectedItem: "Linea 1"
+					addElement( "Linea 1" )
+					addElement( "Linea 2" )
+					addElement( "Linea 3" )
+					addElement( "Linea 4" )
+				}
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 3"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button135"
+				"text": "Volver"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "Volver28", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 4"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 455, 1945 )
+			"size": new java.awt.Dimension( 415, 225 )
+		} )
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+			"$layoutConstraints": "hidemode 3"
+			"$columnConstraints": "[fill][fill][fill]"
+			"$rowConstraints": "[][][][][][][][][][][][][]"
+		} ) {
+			name: "frame29"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label36"
+				"text": "Busqueda por ID : Linea 1"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 0 2 1,align center center,grow 0 0"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox26"
+				"model": &DefaultComboBoxModel3 new javax.swing.DefaultComboBoxModel {
+					selectedItem: "0"
+					addElement( "0" )
+					addElement( "1" )
+					addElement( "2" )
+					addElement( "3" )
+					addElement( "4" )
+					addElement( "5" )
+					addElement( "6" )
+					addElement( "7" )
+					addElement( "8" )
+					addElement( "9" )
+					addElement( "10" )
+					addElement( "11" )
+					addElement( "12" )
+					addElement( "13" )
+					addElement( "14" )
+					addElement( "15" )
+					addElement( "16" )
+					addElement( "17" )
+					addElement( "18" )
+					addElement( "19" )
+					addElement( "20" )
+					addElement( "21" )
+					addElement( "22" )
+					addElement( "23" )
+					addElement( "24" )
+					addElement( "25" )
+					addElement( "26" )
+					addElement( "27" )
+					addElement( "28" )
+					addElement( "29" )
+					addElement( "30" )
+					addElement( "31" )
+					addElement( "32" )
+					addElement( "33" )
+					addElement( "34" )
+					addElement( "35" )
+				}
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 1 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label38"
+				"text": "Partida"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox27"
+				"model": &DefaultComboBoxModel4 new javax.swing.DefaultComboBoxModel {
+					selectedItem: "0"
+					addElement( "0" )
+					addElement( "1" )
+					addElement( "2" )
+					addElement( "3" )
+					addElement( "4" )
+					addElement( "5" )
+					addElement( "6" )
+					addElement( "7" )
+					addElement( "8" )
+					addElement( "9" )
+					addElement( "10" )
+					addElement( "11" )
+					addElement( "12" )
+					addElement( "13" )
+					addElement( "14" )
+					addElement( "15" )
+					addElement( "16" )
+					addElement( "17" )
+					addElement( "18" )
+					addElement( "19" )
+					addElement( "20" )
+					addElement( "21" )
+					addElement( "22" )
+					addElement( "23" )
+					addElement( "24" )
+					addElement( "25" )
+					addElement( "26" )
+					addElement( "27" )
+					addElement( "28" )
+					addElement( "29" )
+					addElement( "30" )
+					addElement( "31" )
+					addElement( "32" )
+					addElement( "33" )
+					addElement( "34" )
+					addElement( "35" )
+				}
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 2 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label39"
+				"text": "Llegada"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 2"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox30"
+				"model": &DefaultComboBoxModel5 new javax.swing.DefaultComboBoxModel {
+					selectedItem: "Isaac Newton"
+					addElement( "Isaac Newton" )
+					addElement( "Nikola Tesla" )
+					addElement( "Arquimedes" )
+					addElement( "Albert Einstein" )
+				}
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 3 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label40"
+				"text": "Driver"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 3"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField1"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 4 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label41"
+				"text": "Hora de inicio de trabajo"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 4"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label42"
+				"text": "(En formato HH:mm) Ejemplo: 10:45"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 5"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox32"
+				"model": &DefaultComboBoxModel6 new javax.swing.DefaultComboBoxModel {
+					selectedItem: "Tren 1"
+					addElement( "Tren 1" )
+					addElement( "Tren 2" )
+					addElement( "Tren 3" )
+					addElement( "Tren 4" )
+				}
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 6 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label43"
+				"text": "Tren"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 6"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button106"
+				"text": "Confirmar"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "ConfirmarLinea1TrainLine", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 7 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button107"
+				"text": "Volver"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "Volver21", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 8 2 1"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 20, 1995 )
+			"size": &Dimension4 new java.awt.Dimension( 400, 370 )
+		} )
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+			"$layoutConstraints": "hidemode 3"
+			"$columnConstraints": "[fill][fill][fill]"
+			"$rowConstraints": "[][][][][][][][][][][][][]"
+		} ) {
+			name: "frame31"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label44"
+				"text": "Busqueda por ID : Linea 2"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 0 2 1,align center center,grow 0 0"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox33"
+				"model": #DefaultComboBoxModel3
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 1 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label45"
+				"text": "Partida"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox34"
+				"model": #DefaultComboBoxModel4
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 2 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label46"
+				"text": "Llegada"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 2"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox35"
+				"model": #DefaultComboBoxModel5
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 3 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label47"
+				"text": "Driver"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 3"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField2"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 4 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label48"
+				"text": "Hora de inicio de trabajo"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 4"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label49"
+				"text": "(En formato HH:mm) Ejemplo: 10:45"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 5"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox36"
+				"model": #DefaultComboBoxModel6
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 6 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label50"
+				"text": "Tren"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 6"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button108"
+				"text": "Confirmar"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "ConfirmarTrainLinea2", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 7 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button109"
+				"text": "Volver"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "Vovler32", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 8 2 1"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"size": #Dimension4
+			"location": new java.awt.Point( 20, 2380 )
+		} )
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+			"$layoutConstraints": "hidemode 3"
+			"$columnConstraints": "[fill][fill][fill]"
+			"$rowConstraints": "[][][][][][][][][][][][][]"
+		} ) {
+			name: "frame32"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label51"
+				"text": "Busqueda por ID : Linea 3"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 0 2 1,align center center,grow 0 0"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox37"
+				"model": #DefaultComboBoxModel3
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 1 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label52"
+				"text": "Partida"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox38"
+				"model": #DefaultComboBoxModel4
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 2 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label53"
+				"text": "Llegada"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 2"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox39"
+				"model": #DefaultComboBoxModel5
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 3 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label54"
+				"text": "Driver"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 3"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField3"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 4 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label55"
+				"text": "Hora de inicio de trabajo"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 4"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label56"
+				"text": "(En formato HH:mm) Ejemplo: 10:45"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 5"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox40"
+				"model": #DefaultComboBoxModel6
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 6 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label57"
+				"text": "Tren"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 6"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button110"
+				"text": "Confirmar"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "ConfirmarLinea3Train", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 7 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button111"
+				"text": "Volver"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "Volver32", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 8 2 1"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"size": #Dimension4
+			"location": new java.awt.Point( 20, 2760 )
+		} )
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+			"$layoutConstraints": "hidemode 3"
+			"$columnConstraints": "[fill][fill][fill]"
+			"$rowConstraints": "[][][][][][][][][][][][][][]"
+		} ) {
+			name: "frame33"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label58"
+				"text": "Busqueda por ID : Linea 4"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 0 2 1,align center center,grow 0 0"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox41"
+				"model": #DefaultComboBoxModel3
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 1 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label59"
+				"text": "Partida"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox42"
+				"model": #DefaultComboBoxModel4
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 2 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label60"
+				"text": "Llegada"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 2"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox43"
+				"model": #DefaultComboBoxModel5
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 3 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label61"
+				"text": "Driver"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 3"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField4"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 4 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label62"
+				"text": "Hora de inicio de trabajo"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 4"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label63"
+				"text": "(En formato HH:mm) Ejemplo: 10:45"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 5"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox44"
+				"model": #DefaultComboBoxModel6
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 6 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label64"
+				"text": "Tren"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 6"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button112"
+				"text": "Confirmar"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "ConfirmarLinea4Train", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 8 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button113"
+				"text": "Volver"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "Volver33", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 9 2 1"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"size": new java.awt.Dimension( 400, 375 )
+			"location": new java.awt.Point( 20, 3145 )
+		} )
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+			"$layoutConstraints": "hidemode 3"
+			"$columnConstraints": "[fill][fill]"
+			"$rowConstraints": "[][][][][]"
+		} ) {
+			name: "frame26"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label37"
+				"text": "Seleccion actual: Por objeto"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 0"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button119"
+				"text": "whereIsTrain"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "Volver26a34", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 1"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button120"
+				"text": "trainPath"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "Volver24a35", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 2"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button121"
+				"text": "Volver"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "volver26", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 3"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button122"
+				"text": "Train por ID"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "Frame6Vovler3", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 4"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 940, 1795 )
+			"size": new java.awt.Dimension( 195, 225 )
+		} )
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+			"$layoutConstraints": "hidemode 3"
+			"$columnConstraints": "[fill][fill][fill][fill][fill][fill][fill][fill][fill]"
+			"$rowConstraints": "[][][][][][]"
+		} ) {
+			name: "frame27"
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox28"
+				"model": &DefaultComboBoxModel7 new javax.swing.DefaultComboBoxModel {
+					selectedItem: "0"
+					addElement( "0" )
+					addElement( "1" )
+					addElement( "2" )
+					addElement( "3 " )
+				}
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 0"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label65"
+				"text": "Id"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 1 0"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label68"
+				"text": "whereIsTrain"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 1 0"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField5"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label66"
+				"text": "Hora, en formato"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 1 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label67"
+				"text": "hh:mm Ejemplo: 15:40"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 1 2"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button123"
+				"text": "Confirmar"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "ConfirmarWhereIsTrainID", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 3 3 1"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button124"
+				"text": "Volver"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "Volver27A6", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 4 3 1"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 1430, 1585 )
+			"size": &Dimension5 new java.awt.Dimension( 255, 225 )
+		} )
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+			"$layoutConstraints": "hidemode 3"
+			"$columnConstraints": "[fill][fill][fill][fill][fill][fill][fill][fill][fill]"
+			"$rowConstraints": "[][][][][][]"
+		} ) {
+			name: "frame30"
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox29"
+				"model": #DefaultComboBoxModel7
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 0"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label69"
+				"text": "Id"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 1 0"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label70"
+				"text": "trainPath"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 1 0"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField6"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label71"
+				"text": "Hora, en formato"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 1 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label72"
+				"text": "hh:mm Ejemplo: 15:40"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 1 2"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button125"
+				"text": "Confirmar"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "ConfirmarUltimaFuncion", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 3 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button126"
+				"text": "Volver"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "Frame30Al6", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 4 2 1"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"size": #Dimension5
+			"location": new java.awt.Point( 1690, 1585 )
+		} )
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+			"$layoutConstraints": "hidemode 3"
+			"$columnConstraints": "[fill][fill][fill][fill][fill][fill][fill][fill][fill]"
+			"$rowConstraints": "[][][][][][]"
+		} ) {
+			name: "frame34"
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox45"
+				"model": new javax.swing.DefaultComboBoxModel {
+					selectedItem: "Tren 1"
+					addElement( "Tren 1" )
+					addElement( "Tren 2" )
+					addElement( "Tren 3" )
+					addElement( "Tren 4" )
+				}
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 0"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label73"
+				"text": "Objeto"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 1 0"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label74"
+				"text": "whereIsTrain"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 1 0"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField7"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label75"
+				"text": "Hora, en formato"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 1 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label76"
+				"text": "hh:mm Ejemplo: 15:40"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 1 2"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button35"
+				"text": "Confirmar"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "ConfirmarObjeto1", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 3 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button114"
+				"text": "Volver"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "Volver34a26", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 4 2 1"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"size": #Dimension5
+			"location": new java.awt.Point( 935, 2050 )
+		} )
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+			"$layoutConstraints": "hidemode 3"
+			"$columnConstraints": "[fill][fill][fill][fill][fill][fill][fill][fill][fill]"
+			"$rowConstraints": "[][][][][][]"
+		} ) {
+			name: "frame35"
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox46"
+				"model": new javax.swing.DefaultComboBoxModel {
+					selectedItem: "Tren 1"
+					addElement( "Tren 1" )
+					addElement( "Tren 2" )
+					addElement( "Tren 3" )
+					addElement( "Tren 4" )
+				}
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 0"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label77"
+				"text": "Objeto"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 1 0"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label78"
+				"text": "trainPath"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 1 0"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField8"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label79"
+				"text": "Hora, en formato"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 1 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label80"
+				"text": "hh:mm Ejemplo: 15:40"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 1 2"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button36"
+				"text": "Confirmar"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "ConfirmarTrenObjeto2", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 3 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button136"
+				"text": "Volver"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "De35a26", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 4 2 1"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"size": #Dimension5
+			"location": new java.awt.Point( 1205, 2050 )
+		} )
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+			"$layoutConstraints": "hidemode 3"
+			"$columnConstraints": "[fill][fill][fill]"
+			"$rowConstraints": "[][][][][][][][][][][][][][][]"
+		} ) {
+			name: "frame36"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label81"
+				"text": "Busqueda por Objeto : Linea 1"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 0 2 1,align center center,grow 0 0"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox47"
+				"model": new javax.swing.DefaultComboBoxModel {
+					selectedItem: "San pablo"
+					addElement( "San pablo" )
+					addElement( "Neptuno" )
+					addElement( "Pajaritos" )
+					addElement( "Las Rejas" )
+					addElement( "Ecuador" )
+					addElement( "San Alberto Hurtado" )
+					addElement( "Universidad de Santiago de Chile" )
+					addElement( "Estacion Central" )
+					addElement( "ULA" )
+					addElement( "Republica" )
+					addElement( "Los heroes" )
+					addElement( "La moneda" )
+					addElement( "Universidad de Chile" )
+					addElement( "Santa lucia" )
+					addElement( "Universidad Catolica" )
+					addElement( "Baquedano" )
+					addElement( "Salvador" )
+					addElement( "Manuel Montt" )
+					addElement( "Pedro de Valdivia" )
+					addElement( "Los Leones" )
+					addElement( "Tobalaba" )
+					addElement( "El Golf" )
+					addElement( "Alcantara" )
+					addElement( "Escuela Militar" )
+					addElement( "Manquehue" )
+					addElement( "Hernando de Magallanes" )
+					addElement( "Los Dominicos" )
+				}
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 1 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label82"
+				"text": "Partida"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox48"
+				"model": new javax.swing.DefaultComboBoxModel {
+					selectedItem: "San pablo"
+					addElement( "San pablo" )
+					addElement( "Neptuno" )
+					addElement( "Pajaritos" )
+					addElement( "Las Rejas" )
+					addElement( "Ecuador" )
+					addElement( "San Alberto Hurtado" )
+					addElement( "Universidad de Santiago de Chile" )
+					addElement( "Estacion Central" )
+					addElement( "ULA" )
+					addElement( "Republica" )
+					addElement( "Los heroes" )
+					addElement( "La moneda" )
+					addElement( "Universidad de Chile" )
+					addElement( "Santa lucia" )
+					addElement( "Universidad Catolica" )
+					addElement( "Baquedano" )
+					addElement( "Salvador" )
+					addElement( "Manuel Montt" )
+					addElement( "Pedro de Valdivia" )
+					addElement( "Los Leones" )
+					addElement( "Tobalaba" )
+					addElement( "El Golf" )
+					addElement( "Alcantara" )
+					addElement( "Escuela Militar" )
+					addElement( "Manquehue" )
+					addElement( "Hernando de Magallanes" )
+					addElement( "Los Dominicos" )
+				}
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 2 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label83"
+				"text": "Llegada"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 2"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox49"
+				"model": #DefaultComboBoxModel5
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 3 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label84"
+				"text": "Driver"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 3"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField9"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 4 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label85"
+				"text": "Hora de inicio de trabajo"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 4"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label86"
+				"text": "(En formato HH:mm) Ejemplo: 10:45"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 5"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox50"
+				"model": #DefaultComboBoxModel6
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 6 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label87"
+				"text": "Tren"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 6"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button127"
+				"text": "Confirmar"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "ConfirmarLinea1objetoID", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 8"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button128"
+				"text": "Volver"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "Volver36a21", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 10"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"size": new java.awt.Dimension( 400, 389 )
+			"location": new java.awt.Point( 0, 3531 )
+		} )
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+			"$layoutConstraints": "hidemode 3"
+			"$columnConstraints": "[fill][fill][fill]"
+			"$rowConstraints": "[][][][][][][][][][][][][]"
+		} ) {
+			name: "frame37"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label88"
+				"text": "Busqueda por Objeto : Linea 2"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 0 2 1,align center center,grow 0 0"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox51"
+				"model": new javax.swing.DefaultComboBoxModel {
+					selectedItem: "Vespucio Norte"
+					addElement( "Vespucio Norte" )
+					addElement( "Zapadores" )
+					addElement( "Dorsal" )
+					addElement( "Einstein" )
+					addElement( "Cementerios" )
+					addElement( "Cerro Blanco" )
+					addElement( "Patronato" )
+					addElement( "Puente Cal y Canto" )
+					addElement( "Santa Ana" )
+					addElement( "Los Héroes" )
+					addElement( "Toesca" )
+					addElement( "Parque O Higgins" )
+					addElement( "Rondizzoni" )
+					addElement( "Franklin" )
+					addElement( "El Llano" )
+					addElement( "San Miguel" )
+					addElement( "Lo Vial" )
+					addElement( "Departamental" )
+					addElement( "Ciudad del Nino" )
+					addElement( "Lo Ovalle" )
+					addElement( "El Parron" )
+					addElement( "La Cisterna" )
+					addElement( "Lo Espejo" )
+					addElement( "Observatorio" )
+					addElement( "Lo Martinez" )
+					addElement( "Hospital El Pino" )
+				}
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 1 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label89"
+				"text": "Partida"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox52"
+				"model": new javax.swing.DefaultComboBoxModel {
+					selectedItem: "Vespucio Norte"
+					addElement( "Vespucio Norte" )
+					addElement( "Zapadores" )
+					addElement( "Dorsal" )
+					addElement( "Einstein" )
+					addElement( "Cementerios" )
+					addElement( "Cerro Blanco" )
+					addElement( "Patronato" )
+					addElement( "Puente Cal y Canto" )
+					addElement( "Santa Ana" )
+					addElement( "Los Héroes" )
+					addElement( "Toesca" )
+					addElement( "Parque O Higgins" )
+					addElement( "Rondizzoni" )
+					addElement( "Franklin" )
+					addElement( "El Llano" )
+					addElement( "San Miguel" )
+					addElement( "Lo Vial" )
+					addElement( "Departamental" )
+					addElement( "Ciudad del Nino" )
+					addElement( "Lo Ovalle" )
+					addElement( "El Parron" )
+					addElement( "La Cisterna" )
+					addElement( "Lo Espejo" )
+					addElement( "Observatorio" )
+					addElement( "Lo Martinez" )
+					addElement( "Hospital El Pino" )
+				}
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 2 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label90"
+				"text": "Llegada"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 2"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox53"
+				"model": #DefaultComboBoxModel5
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 3 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label91"
+				"text": "Driver"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 3"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField10"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 4 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label92"
+				"text": "Hora de inicio de trabajo"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 4"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label93"
+				"text": "(En formato HH:mm) Ejemplo: 10:45"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 5"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox54"
+				"model": #DefaultComboBoxModel6
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 6 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label94"
+				"text": "Tren"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 6"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button129"
+				"text": "Volver"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "Volver37", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 8"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button130"
+				"text": "Confirmar"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "ConfirmarObjectLinea2", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 7"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"size": #Dimension4
+			"location": new java.awt.Point( 0, 3917 )
+		} )
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+			"$layoutConstraints": "hidemode 3"
+			"$columnConstraints": "[fill][fill][fill]"
+			"$rowConstraints": "[][][][][][][][][][][][][]"
+		} ) {
+			name: "frame38"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label95"
+				"text": "Busqueda por objeto : Linea 3"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 0 2 1,align center center,grow 0 0"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox55"
+				"model": new javax.swing.DefaultComboBoxModel {
+					selectedItem: "Plaza Quilicura"
+					addElement( "Plaza Quilicura" )
+					addElement( "Lo Cruzat" )
+					addElement( "Ferrocarril" )
+					addElement( "Los Libertadores" )
+					addElement( "Cardenal Caro" )
+					addElement( "Vivaceta" )
+					addElement( "Conchali" )
+					addElement( "Plaza Chacabuco" )
+					addElement( "Hospitales" )
+					addElement( "Puente Cal y Canto" )
+					addElement( "Plaza de Armas" )
+					addElement( "Universidad de Chile" )
+					addElement( "Parque Almagro" )
+					addElement( "Matta" )
+					addElement( "Irarrazaval" )
+					addElement( "Monsenor Eyzaguirre" )
+					addElement( "Nunoa" )
+					addElement( "Chile Espana" )
+					addElement( "Villa Frei" )
+					addElement( "Plaza Egana" )
+					addElement( "Fernando Castillo Velasco" )
+				}
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 1 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label96"
+				"text": "Partida"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox56"
+				"model": new javax.swing.DefaultComboBoxModel {
+					selectedItem: "Plaza Quilicura"
+					addElement( "Plaza Quilicura" )
+					addElement( "Lo Cruzat" )
+					addElement( "Ferrocarril" )
+					addElement( "Los Libertadores" )
+					addElement( "Cardenal Caro" )
+					addElement( "Vivaceta" )
+					addElement( "Conchali" )
+					addElement( "Plaza Chacabuco" )
+					addElement( "Hospitales" )
+					addElement( "Puente Cal y Canto" )
+					addElement( "Plaza de Armas" )
+					addElement( "Universidad de Chile" )
+					addElement( "Parque Almagro" )
+					addElement( "Matta" )
+					addElement( "Irarrazaval" )
+					addElement( "Monsenor Eyzaguirre" )
+					addElement( "Nunoa" )
+					addElement( "Chile Espana" )
+					addElement( "Villa Frei" )
+					addElement( "Plaza Egana" )
+					addElement( "Fernando Castillo Velasco" )
+				}
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 2 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label97"
+				"text": "Llegada"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 2"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox57"
+				"model": #DefaultComboBoxModel5
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 3 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label98"
+				"text": "Driver"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 3"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField11"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 4 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label99"
+				"text": "Hora de inicio de trabajo"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 4"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label100"
+				"text": "(En formato HH:mm) Ejemplo: 10:45"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 5"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox58"
+				"model": #DefaultComboBoxModel6
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 6 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label101"
+				"text": "Tren"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 6"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button131"
+				"text": "Volver"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "Volver38", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 8"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button132"
+				"text": "Confirmar"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "ConfirmarObjetoLinea33", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 7"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"size": #Dimension4
+			"location": new java.awt.Point( 0, 4303 )
+		} )
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+			"$layoutConstraints": "hidemode 3"
+			"$columnConstraints": "[fill][fill][fill]"
+			"$rowConstraints": "[][][][][][][][][][][][][]"
+		} ) {
+			name: "frame39"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label102"
+				"text": "Busqueda por objeto : Linea 4"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 0 2 1,align center center,grow 0 0"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox59"
+				"model": new javax.swing.DefaultComboBoxModel {
+					selectedItem: "San Ramon"
+					addElement( "San Ramon" )
+					addElement( "Santa Rosa" )
+					addElement( "La Granja" )
+					addElement( "Santa Julia" )
+					addElement( "Vicuña Mackenna" )
+					addElement( "Walker Martinez" )
+					addElement( "Rojas Magallanes" )
+					addElement( "Trinidad" )
+					addElement( "Portales" )
+					addElement( "Mall Plaza Tobalaba" )
+					addElement( "El peñon" )
+					addElement( "Plaza Viva" )
+					addElement( "Las Vizcachas" )
+					addElement( "La Laja" )
+					addElement( "Ejercito Libertador" )
+					addElement( "Valle Central" )
+					addElement( "Hospital Karol Wojtyla" )
+					addElement( "Nos" )
+					addElement( "Cinco Pinos" )
+					addElement( "San Bernardo" )
+					addElement( "Lo Blanco" )
+					addElement( "Monseñor Larrain" )
+					addElement( "El Bosque" )
+					addElement( "San Ramon(Termino)" )
+				}
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 1 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label103"
+				"text": "Partida"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox60"
+				"model": new javax.swing.DefaultComboBoxModel {
+					selectedItem: "San Ramon"
+					addElement( "San Ramon" )
+					addElement( "Santa Rosa" )
+					addElement( "La Granja" )
+					addElement( "Santa Julia" )
+					addElement( "Vicuña Mackenna" )
+					addElement( "Walker Martinez" )
+					addElement( "Rojas Magallanes" )
+					addElement( "Trinidad" )
+					addElement( "Portales" )
+					addElement( "Mall Plaza Tobalaba" )
+					addElement( "El peñon" )
+					addElement( "Plaza Viva" )
+					addElement( "Las Vizcachas" )
+					addElement( "La Laja" )
+					addElement( "Ejercito Libertador" )
+					addElement( "Valle Central" )
+					addElement( "Hospital Karol Wojtyla" )
+					addElement( "Nos" )
+					addElement( "Cinco Pinos" )
+					addElement( "San Bernardo" )
+					addElement( "Lo Blanco" )
+					addElement( "Monseñor Larrain" )
+					addElement( "El Bosque" )
+					addElement( "San Ramon(Termino)" )
+				}
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 2 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label104"
+				"text": "Llegada"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 2"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox61"
+				"model": #DefaultComboBoxModel5
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 3 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label105"
+				"text": "Driver"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 3"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField12"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 4 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label106"
+				"text": "Hora de inicio de trabajo"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 4"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label107"
+				"text": "(En formato HH:mm) Ejemplo: 10:45"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 5"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox62"
+				"model": #DefaultComboBoxModel6
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 6 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label108"
+				"text": "Tren"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 6"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button133"
+				"text": "Volver"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "Volver39", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 8"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button134"
+				"text": "Confirmar"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "ConfirmarObjeto4", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 7"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"size": #Dimension4
+			"location": new java.awt.Point( 0, 4689 )
 		} )
 	}
 }

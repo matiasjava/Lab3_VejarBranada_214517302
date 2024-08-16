@@ -1,28 +1,28 @@
 0,San pablo,t,30
-1,Neptuno,r,60
-2,Pajaritos,m,75
-3,Las Rejas,r,40
-4,Ecuador,r,50
-5,San Alberto Hurtado,r,50
+1,Neptuno,r,30
+2,Pajaritos,m,20
+3,Las Rejas,r,25
+4,Ecuador,r,15
+5,San Alberto Hurtado,r,15
 6,Universidad de Santiago de Chile,c,30
 7,Estacion central,t,15
-8,ULA,m,40
-9,Republica,r,45
-10,Los heroes,r,30
+8,ULA,m,20
+9,Republica,r,15
+10,Los heroes,r,20
 11,La moneda,m,20
 12,Universidad de Chile,r,30
-13,Santa lucia,t,40
-14,Universidad Catolica,r,50
-15,Baquedano,c,40
-16,Salvador,r,60
-17,Manuel Montt,t,50
-18,Pedro de Valdivia,r,50
-19,Los Leones,c,45
-20,Tobalaba,r,50
-21,El Golf,r,45
-22,Alcantara,r,50
-23,Escuela Militar,r,60
-24,Manquehue,r,50
+13,Santa lucia,t,20
+14,Universidad Catolica,r,10
+15,Baquedano,c,30
+16,Salvador,r,20
+17,Manuel Montt,t,10
+18,Pedro de Valdivia,r,10
+19,Los Leones,c,5
+20,Tobalaba,r,5
+21,El Golf,r,15
+22,Alcantara,r,20
+23,Escuela Militar,r,25
+24,Manquehue,r,30
 25,Hernando de Magallanes,r,40
 26,Los Dominicos,t,30
 Sections
@@ -55,32 +55,32 @@ Sections
 Lineas
 1,Linea1,GOER
 Termino
-27,Vespucio Norte,t,45
-28,Zapadores,r,35
-29,Dorsal,r,35
-30,Einstein,r,65
-31,Cementerios,m,35
-32,Cerro Blanco,r,55
-33,Patronato,m,35
-34,Puente Cal y Canto,c,55
-35,Santa Ana,c,30
-36,Los Héroes,c,35
-37,Toesca,r,55
-38,Parque O Higgins,c,55
-39,Rondizzoni,r,35
-40,Franklin,c,55
-41,El Llano,r,40
-42,San Miguel,r,45
-43,Lo Vial,r,45
-44,Departamental,r,45
-45,Ciudad del Nino,r,45
-46,Lo Ovalle,c,50
-47,El Parron,r,65
-48,La Cisterna,c,45
-49,Lo Espejo,r,45
-50,Observatorio,r,50
-51,Lo Martinez,m,35
-52,Hospital El Pino,t,55
+27,Vespucio Norte,t,15
+28,Zapadores,r,20
+29,Dorsal,r,10
+30,Einstein,r,25
+31,Cementerios,m,10
+32,Cerro Blanco,r,20
+33,Patronato,m,5
+34,Puente Cal y Canto,c,15
+35,Santa Ana,c,25
+36,Los Héroes,c,20
+37,Toesca,r,10
+38,Parque O Higgins,c,15
+39,Rondizzoni,r,25
+40,Franklin,c,5
+41,El Llano,r,10
+42,San Miguel,r,20
+43,Lo Vial,r,15
+44,Departamental,r,25
+45,Ciudad del Nino,r,10
+46,Lo Ovalle,c,20
+47,El Parron,r,5
+48,La Cisterna,c,15
+49,Lo Espejo,r,10
+50,Observatorio,r,25
+51,Lo Martinez,m,20
+52,Hospital El Pino,t,5
 Sections
 58,78
 60,32
@@ -110,27 +110,27 @@ Sections
 Lineas
 2,Linea2,KDOER
 Termino
-53,Plaza Quilicura,t,45
-54,Lo Cruzat,r,35
-55,Ferrocarril,r,35
-56,Los Libertadores,r,65
-57,Cardenal Caro,m,35
-58,Vivaceta,r,25
-59,Conchali,m,35
-60,Plaza Chacabuco,c,45
-61,Hospitales,c,35
-62,Puente Cal y Canto,c,25
-63,Plaza de Armas,c,35
-64,Universidad de Chile,c,45
-65,Parque Almagro,r,25
-66,Matta,c,55
-67,Irarrazaval,r,50
-68,Monsenor Eyzaguirre,r,65
-69,Nunoa,r,25
-70,Chile Espana,r,75
-71,Villa Frei,r,35
-72,Plaza Egana,c,55
-73,Fernando Castillo Velasco,t,45
+53,Plaza Quilicura,t,15
+54,Lo Cruzat,r,20
+55,Ferrocarril,r,10
+56,Los Libertadores,r,25
+57,Cardenal Caro,m,10
+58,Vivaceta,r,20
+59,Conchali,m,5
+60,Plaza Chacabuco,c,15
+61,Hospitales,c,25
+62,Puente Cal y Canto,c,20
+63,Plaza de Armas,c,10
+64,Universidad de Chile,c,25
+65,Parque Almagro,r,5
+66,Matta,c,15
+67,Irarrazaval,r,10
+68,Monsenor Eyzaguirre,r,20
+69,Nunoa,r,15
+70,Chile Espana,r,25
+71,Villa Frei,r,10
+72,Plaza Egana,c,20
+73,Fernando Castillo Velasco,t,5
 Sections
 58,78
 60,32
@@ -155,30 +155,30 @@ Sections
 Lineas
 3,Linea3,KDOER
 Termino
-74,San Ramon,c,50
-75,Santa Rosa,r,40
-76,La Granja,r,55
-77,Santa Julia,m,65
-78,Vicuna Mackenna,r,55
-79,Walker Martinez,r,40
-80,Rojas Magallanes,r,45
-81,Trinidad,c,50
-82,Portales,m,30
-83,Mall Plaza Tobalaba,r,15
-84,El penon,r,35
-85,Plaza Viva,r,45
-86,Las Vizcachas,r,15
-87,La Laja,r,30
-88,Ejercito Libertador,r,55
-89,Valle Central,r,45
-90,Hospital Karol Wojtyla,m,70
-91,Nos,r,35
-92,Cinco Pinos,r,35
-93,San Bernardo,r,35
-94,Lo Blanco,r,35
-95,Monsenor Larrain,r,35
-96,El Bosque,m,45
-74,San Ramon(Termino),c,50
+74,San Ramon,c,15
+75,Santa Rosa,r,20
+76,La Granja,r,10
+77,Santa Julia,m,25
+78,Vicuna Mackenna,r,5
+79,Walker Martinez,r,20
+80,Rojas Magallanes,r,15
+81,Trinidad,c,10
+82,Portales,m,25
+83,Mall Plaza Tobalaba,r,5
+84,El penon,r,20
+85,Plaza Viva,r,15
+86,Las Vizcachas,r,10
+87,La Laja,r,25
+88,Ejercito Libertador,r,5
+89,Valle Central,r,20
+90,Hospital Karol Wojtyla,m,15
+91,Nos,r,10
+92,Cinco Pinos,r,25
+93,San Bernardo,r,5
+94,Lo Blanco,r,20
+95,Monsenor Larrain,r,15
+96,El Bosque,m,10
+74,San Ramon(Termino),c,25
 Sections
 58,78
 60,32
@@ -207,15 +207,15 @@ Lineas
 4,Linea4,CIRDL
 Termino
 97,Terminal Sur,t,30
-98,Vespucio Oeste,t,55
+98,Vespucio Oeste,t,25
 99,Indonesia,t,45
-100,Lecheria,t,70
-101,Taborga,r,35
-102,Zocalo,r,35
-103,Atocha,r,35
-104,Catedral,m,35
-105,Palermo,m,45
-106,Bastille,c,50
+100,Lecheria,t,15
+101,Taborga,r,20
+102,Zocalo,r,15
+103,Atocha,r,15
+104,Catedral,m,25
+105,Palermo,m,35
+106,Bastille,c,40
 107,Ciudad de la bicicleta,c,35
 Sections
 

@@ -1,10 +1,13 @@
 package org.Proyecto;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 
 import org.Proyecto.TDAs.Clases.*;
 import org.Proyecto.TDAs.Interfaces.LineInterface;
+import java.util.Date;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,6 +17,20 @@ public class Main {
     public static JFrame frame;
     private JPanel mainPanel;
     private CardLayout cardLayout;
+
+
+    public static int count = 0;
+
+
+    public static List<Station> listaStations1 = new ArrayList<>();
+
+    public static List<Station> listaStations2 = new ArrayList<>();
+
+    public static List<Station> listaStations3 = new ArrayList<>();
+
+    public static List<Station> listaStations4 = new ArrayList<>();
+
+    public static SimpleDateFormat formatoHora = new SimpleDateFormat("HH:mm");
 
     public static Boolean banderaTrain = false;
 
@@ -95,6 +112,38 @@ public class Main {
 
     public static void setDriversSueltos(List<Driver> nuevaVariable) {
         driversSueltos = nuevaVariable;
+    }
+
+    public static List<Station> getListaStations1() {
+        return listaStations1;
+    }
+
+    public static void setListaStations1(List<Station> nuevaVariable) {
+        listaStations1 = nuevaVariable;
+    }
+
+    public static List<Station> getListaStations2() {
+        return listaStations2;
+    }
+
+    public static void setListaStations2(List<Station> nuevaVariable) {
+        listaStations2 = nuevaVariable;
+    }
+
+    public static List<Station> getListaStations3() {
+        return listaStations3;
+    }
+
+    public static void setListaStations3(List<Station> nuevaVariable) {
+        listaStations3 = nuevaVariable;
+    }
+
+    public static List<Station> getListaStations4() {
+        return listaStations4;
+    }
+
+    public static void setListaStations4(List<Station> nuevaVariable) {
+        listaStations4 = nuevaVariable;
     }
 
 

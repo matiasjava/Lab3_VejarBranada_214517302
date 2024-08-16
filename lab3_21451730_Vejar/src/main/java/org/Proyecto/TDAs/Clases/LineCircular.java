@@ -9,9 +9,9 @@ public class LineCircular implements LineInterface {
     public int id;
     public String name;
     public String railType;
-    public List<Section> sections;
-    public List<Train> trains;
-    public List<Driver> drivers;
+    public List<Section> sections = new ArrayList<>();
+    public List<Train> trains = new ArrayList<>();
+    public List<Driver> drivers = new ArrayList<>();
 
     public LineCircular() {
     }

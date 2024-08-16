@@ -12,5 +12,7 @@ public interface SectionInterface {
     public void setPoint2(Station point2);
     public void setDistance(int distance);
     public void setCost(int cost);
+    public int getTiempoDeLlegada();
+    public void setTiempoDeLlegada(int tiempoDeLlegada);
 
 }

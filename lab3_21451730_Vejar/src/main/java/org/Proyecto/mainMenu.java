@@ -9,7 +9,9 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.swing.*;
 
@@ -17,6 +19,9 @@ import com.sun.source.tree.NewArrayTree;
 import net.miginfocom.swing.*;
 import org.Proyecto.TDAs.Clases.*;
 import org.Proyecto.TDAs.Interfaces.LineInterface;
+
+
+
 
 import static org.Proyecto.Main.*;
 
@@ -93,6 +98,7 @@ public class mainMenu extends JFrame {
                 stations.add(station);
                 linea = br.readLine();
             }
+            setListaStations1(stations);
             linea = br.readLine();
             while (!linea.startsWith("Lineas")) {
                 String[] datos = linea.split(",");
@@ -133,7 +139,7 @@ public class mainMenu extends JFrame {
                 linea = br.readLine();
 
             }
-
+            setListaStations2(stations2);
             linea = br.readLine();
             while (!linea.startsWith("Lineas")) {
                 String[] datos2 = linea.split(",");
@@ -175,6 +181,7 @@ public class mainMenu extends JFrame {
                 linea = br.readLine();
 
             }
+            setListaStations3(stations3);
 
             linea = br.readLine();
             while (!linea.startsWith("Lineas")) {
@@ -217,6 +224,7 @@ public class mainMenu extends JFrame {
                 linea = br.readLine();
 
             }
+            setListaStations4(stations4);
 
             linea = br.readLine();
             while (!linea.startsWith("Lineas")) {
@@ -980,8 +988,10 @@ public class mainMenu extends JFrame {
                 JOptionPane.showMessageDialog(null, "El carro esta repetido", "Información", JOptionPane.INFORMATION_MESSAGE);
 
             }
-            trenestxt.get(trenSelect).addCar(pcarsSueltos.get(pcarSelect), posicion);
-            JOptionPane.showMessageDialog(null, "Agregado correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
+            else {
+                trenestxt.get(trenSelect).addCar(pcarsSueltos.get(pcarSelect), posicion);
+                JOptionPane.showMessageDialog(null, "Agregado correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
+            }
         }
     }
 
@@ -1083,9 +1093,10 @@ public class mainMenu extends JFrame {
             List<LineInterface> listCircular = new ArrayList<>();
             listCircular.add(LineaCircular4);
             subway1.addLine(listCircular);
-            JOptionPane.showMessageDialog(null, "Creado correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
+            subway1.adddriver(driverstxt);
+            subway1.addTrain(trenestxt);
             button54.setEnabled(false);
-
+            JOptionPane.showMessageDialog(null, "Creado correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
@@ -1113,18 +1124,35 @@ public class mainMenu extends JFrame {
     private void ConfirmarAssignTrain(ActionEvent e) {
         int selectTrain = comboBox24.getSelectedIndex();
         int selectLine = comboBox25.getSelectedIndex();
-        if(selectLine == 3){
-            subway1.assignTrainToLine(trenestxt.get(selectTrain),LineaCircular4);
-            JOptionPane.showMessageDialog(null, "Agregado Correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
-            comboBox24.removeItemAt(selectTrain);
+
+        if(subway1.getLineListSubway().get(selectLine).getTrains().contains(trenestxt.get(selectTrain))) {
+            JOptionPane.showMessageDialog(null, "El tren esta repetido", "Información", JOptionPane.INFORMATION_MESSAGE);
         }
-        else{
-            subway1.assignTrainToLine(trenestxt.get(selectTrain),lineastxt.get(selectLine));
-            JOptionPane.showMessageDialog(null, "Agregado Correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
-            comboBox24.removeItemAt(selectTrain);
-        }
-        if(comboBox24.getItemCount() == 0) {
-            button94.setEnabled(false);
+        else {
+
+            if (selectLine == 3) {
+                subway1.assignTrainToLine(trenestxt.get(selectTrain), subway1.getLineListSubway().get(3));
+                JOptionPane.showMessageDialog(null, "Agregado Correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
+                count = count + 1;
+            }
+            if (selectLine == 1) {
+                subway1.assignTrainToLine(trenestxt.get(selectTrain), subway1.getLineListSubway().get(1));
+                JOptionPane.showMessageDialog(null, "Agregado Correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
+                count = count + 1;
+            }
+            if (selectLine == 2) {
+                subway1.assignTrainToLine(trenestxt.get(selectTrain), subway1.getLineListSubway().get(2));
+                JOptionPane.showMessageDialog(null, "Agregado Correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
+                count = count + 1;
+            }
+            if (selectLine == 0) {
+                subway1.assignTrainToLine(trenestxt.get(selectTrain), subway1.getLineListSubway().get(0));
+                JOptionPane.showMessageDialog(null, "Agregado Correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
+                count = count + 1;
+            }
+            if (count == 4) {
+                button94.setEnabled(false);
+            }
         }
     }
 
@@ -1133,7 +1161,335 @@ public class mainMenu extends JFrame {
         frame25.setVisible(false);
     }
 
+    private void AssignDriver3(ActionEvent e) {
+        frame21.setVisible(false);
+        frame28.setVisible(true);
+    }
 
+    private void BusquedaPorID(ActionEvent e) {
+        if(subway1.getLineListSubway().get(comboBox31.getSelectedIndex()).getTrains().size() == 0){
+            JOptionPane.showMessageDialog(null, "Linea sin trenes", "Información", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else{
+            if(comboBox31.getSelectedIndex() == 0){
+                frame29.setVisible(true);
+                frame28.setVisible(false);
+            }
+            if(comboBox31.getSelectedIndex() == 1){
+                frame31.setVisible(true);
+                frame28.setVisible(false);
+            }
+            if(comboBox31.getSelectedIndex() == 2){
+                frame32.setVisible(true);
+                frame28.setVisible(false);
+            }
+            if(comboBox31.getSelectedIndex() == 3){
+                frame33.setVisible(true);
+                frame28.setVisible(false);
+            }
+        }
+    }
+
+    private void BusquedaPorObjeto(ActionEvent e) {
+        if(subway1.getLineListSubway().get(comboBox31.getSelectedIndex()).getTrains().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Linea sin trenes", "Información", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else{
+            if(comboBox31.getSelectedIndex() == 0){
+                frame36.setVisible(true);
+                frame28.setVisible(false);
+            }
+            if(comboBox31.getSelectedIndex() == 1){
+                frame37.setVisible(true);
+                frame28.setVisible(false);
+            }
+            if(comboBox31.getSelectedIndex() == 2){
+                frame38.setVisible(true);
+                frame28.setVisible(false);
+            }
+            if(comboBox31.getSelectedIndex() == 3){
+                frame39.setVisible(true);
+                frame28.setVisible(false);
+            }
+        }
+
+    }
+
+    private void Volver21(ActionEvent e) {
+        frame21.setVisible(true);
+        frame29.setVisible(false);
+    }
+
+    private void ConfirmarLinea1TrainLine(ActionEvent e) {
+        if (subway1.getTrainList().get(comboBox32.getSelectedIndex()).getDriverTrain() != null) {
+            JOptionPane.showMessageDialog(null, "A este tren ya le fue asignado conductor", "Información", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            String hora = textField1.getText();
+            try {
+                Date tiempoDePartidaDriver = formatoHora.parse(hora);
+                subway1.assignDriverToTrain(subway1.getTrainList().get(comboBox32.getSelectedIndex()),subway1.getDriverListSubway().get(comboBox30.getSelectedIndex()),tiempoDePartidaDriver, subway1.BuscarStationPorId(comboBox26.getSelectedIndex()),subway1.BuscarStationPorId(comboBox27.getSelectedIndex()));
+                JOptionPane.showMessageDialog(null, "Asignado correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
+            } catch (ParseException r) {
+                r.printStackTrace();
+            }
+        }
+    }
+
+    private void ConfirmarTrainLinea2(ActionEvent e) {
+        if (subway1.getTrainList().get(comboBox36.getSelectedIndex()).getDriverTrain() != null) {
+            JOptionPane.showMessageDialog(null, "A este tren ya le fue asignado conductor", "Información", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            String hora = textField2.getText();
+            try {
+                Date tiempoDePartidaDriver = formatoHora.parse(hora);
+                subway1.assignDriverToTrain(subway1.getTrainList().get(comboBox36.getSelectedIndex()),subway1.getDriverListSubway().get(comboBox35.getSelectedIndex()),tiempoDePartidaDriver,subway1.BuscarStationPorId(comboBox33.getSelectedIndex()),subway1.BuscarStationPorId(comboBox34.getSelectedIndex()));
+                JOptionPane.showMessageDialog(null, "Asignado correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
+            } catch (ParseException r) {
+                r.printStackTrace();
+            }
+        }
+    }
+
+    private void Vovler32(ActionEvent e) {
+        frame31.setVisible(false);
+        frame21.setVisible(true);
+    }
+
+    private void ConfirmarLinea3Train(ActionEvent e) {
+        if (subway1.getTrainList().get(comboBox40.getSelectedIndex()).getDriverTrain() != null) {
+            JOptionPane.showMessageDialog(null, "A este tren ya le fue asignado conductor", "Información", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            String hora = textField3.getText();
+            try {
+                Date tiempoDePartidaDriver = formatoHora.parse(hora);
+                subway1.assignDriverToTrain(subway1.getTrainList().get(comboBox40.getSelectedIndex()),subway1.getDriverListSubway().get(comboBox39.getSelectedIndex()),tiempoDePartidaDriver,subway1.BuscarStationPorId(comboBox37.getSelectedIndex()),subway1.BuscarStationPorId(comboBox38.getSelectedIndex()));
+                JOptionPane.showMessageDialog(null, "Asignado correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
+            } catch (ParseException r) {
+                r.printStackTrace();
+            }
+        }
+    }
+
+    private void Volver32(ActionEvent e) {
+        frame32.setVisible(false);
+        frame21.setVisible(true);
+    }
+
+    private void ConfirmarLinea4Train(ActionEvent e) {
+        if (subway1.getTrainList().get(comboBox44.getSelectedIndex()).getDriverTrain() != null) {
+            JOptionPane.showMessageDialog(null, "A este tren ya le fue asignado conductor", "Información", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            String hora = textField4.getText();
+            try {
+                Date tiempoDePartidaDriver = formatoHora.parse(hora);
+                subway1.assignDriverToTrain(subway1.getTrainList().get(comboBox44.getSelectedIndex()),subway1.getDriverListSubway().get(comboBox43.getSelectedIndex()),tiempoDePartidaDriver,subway1.BuscarStationPorId(comboBox41.getSelectedIndex()),subway1.BuscarStationPorId(comboBox42.getSelectedIndex()));
+                JOptionPane.showMessageDialog(null, "Asignado correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
+            } catch (ParseException r) {
+                r.printStackTrace();
+            }
+        }
+    }
+
+
+    private void Volver33(ActionEvent e) {
+        frame33.setVisible(false);
+        frame21.setVisible(true);
+    }
+
+    private void volver26(ActionEvent e) {
+        frame3.setVisible(true);
+        frame26.setVisible(false);
+    }
+
+    private void Frame26Volver(ActionEvent e) {
+        frame6.setVisible(false);
+        frame26.setVisible(true);
+    }
+
+    private void Frame6Vovler3(ActionEvent e) {
+        frame6.setVisible(true);
+        frame26.setVisible(false);
+    }
+
+    private void ConfirmarWhereIsTrainID(ActionEvent e) {
+        try {
+            Date horaFuncion = formatoHora.parse(textField5.getText());
+            String resultado = subway1.whereIsTrain(subway1.getTrainList().get(comboBox30.getSelectedIndex()),horaFuncion);
+            JOptionPane.showMessageDialog(null, "La proxima estacion es: " + resultado, "Información", JOptionPane.INFORMATION_MESSAGE);
+        } catch (ParseException r) {
+            r.printStackTrace();
+        }
+    }
+
+    private void Volver27A6(ActionEvent e) {
+        frame6.setVisible(true);
+        frame27.setVisible(false);
+    }
+
+    private void Volvera27(ActionEvent e) {
+        frame6.setVisible(false);
+        frame27.setVisible(true);
+    }
+
+    private void Volvera30(ActionEvent e) {
+        frame30.setVisible(true);
+        frame6.setVisible(false);
+    }
+
+    private void ConfirmarUltimaFuncion(ActionEvent e) {
+        try {
+
+            Date horaFuncion = formatoHora.parse(textField6.getText());
+            List<Station> resultado = subway1.trainPath(subway1.getTrainList().get(comboBox28.getSelectedIndex()),horaFuncion);
+            StringBuilder Estaciones = new StringBuilder("Estaciones: ");
+            for(int i = 0;i<resultado.size();i++){
+                Estaciones.append(resultado.get(i).getName()).append(" --> ");
+            }
+            JOptionPane.showMessageDialog(null, "La proxima estacion es: "+ Estaciones, "Información", JOptionPane.INFORMATION_MESSAGE);
+        } catch (ParseException r) {
+            r.printStackTrace();
+        }
+    }
+
+    private void Frame30Al6(ActionEvent e) {
+        frame30.setVisible(false);
+        frame6.setVisible(true);
+    }
+
+    private void ConfirmarObjeto1(ActionEvent e) {
+        try {
+            Date horaFuncion = formatoHora.parse(textField7.getText());
+            String resultado = subway1.whereIsTrain(subway1.getTrainList().get(comboBox45.getSelectedIndex()),horaFuncion);
+            JOptionPane.showMessageDialog(null, "La proxima estacion es: " + resultado, "Información", JOptionPane.INFORMATION_MESSAGE);
+        } catch (ParseException r) {
+            r.printStackTrace();
+        }
+    }
+
+    private void Volver34a26(ActionEvent e) {
+        frame34.setVisible(false);
+        frame26.setVisible(true);
+    }
+
+    private void Volver35a26(ActionEvent e) {
+        frame35.setVisible(false);
+        frame26.setVisible(true);
+    }
+
+    private void ConfirmarTrenObjeto2(ActionEvent e) {
+        try {
+            Date horaFuncion = formatoHora.parse(textField8.getText());
+            List<Station> resultado = subway1.trainPath(subway1.getTrainList().get(comboBox46.getSelectedIndex()),horaFuncion);
+            StringBuilder Estaciones = new StringBuilder("Estaciones: ");
+            for(int i = 0;i<resultado.size();i++){
+                Estaciones.append(resultado.get(i).getName()).append(" --> ");
+            }
+            JOptionPane.showMessageDialog(null, "La proxima estacion es: "+ Estaciones, "Información", JOptionPane.INFORMATION_MESSAGE);
+        } catch (ParseException r) {
+            r.printStackTrace();
+        }
+    }
+
+
+    private void ConfirmarLinea1objetoID(ActionEvent e) {
+        if (subway1.getTrainList().get(comboBox50.getSelectedIndex()).getDriverTrain() != null) {
+            JOptionPane.showMessageDialog(null, "A este tren ya le fue asignado conductor", "Información", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            String hora = textField9.getText();
+            try {
+                Date tiempoDePartidaDriver = formatoHora.parse(hora);
+                subway1.assignDriverToTrain(subway1.getTrainList().get(comboBox50.getSelectedIndex()),subway1.getDriverListSubway().get(comboBox49.getSelectedIndex()),tiempoDePartidaDriver,listaStations1.get(comboBox47.getSelectedIndex()),listaStations1.get(comboBox48.getSelectedIndex()));
+                JOptionPane.showMessageDialog(null, "Asignado correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
+            } catch (ParseException r) {
+                r.printStackTrace();
+            }
+        }
+    }
+
+    private void ConfirmarObjectLinea2(ActionEvent e) {
+        if (subway1.getTrainList().get(comboBox54.getSelectedIndex()).getDriverTrain() != null) {
+            JOptionPane.showMessageDialog(null, "A este tren ya le fue asignado conductor", "Información", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            String hora = textField10.getText();
+            try {
+                Date tiempoDePartidaDriver = formatoHora.parse(hora);
+                subway1.assignDriverToTrain(subway1.getTrainList().get(comboBox54.getSelectedIndex()),subway1.getDriverListSubway().get(comboBox53.getSelectedIndex()),tiempoDePartidaDriver,listaStations1.get(comboBox51.getSelectedIndex()),listaStations1.get(comboBox52.getSelectedIndex()));
+                JOptionPane.showMessageDialog(null, "Asignado correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
+            } catch (ParseException r) {
+                r.printStackTrace();
+            }
+        }
+    }
+
+    private void ConfirmarObjetoLinea33(ActionEvent e) {
+        if (subway1.getTrainList().get(comboBox58.getSelectedIndex()).getDriverTrain() != null) {
+            JOptionPane.showMessageDialog(null, "A este tren ya le fue asignado conductor", "Información", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            String hora = textField11.getText();
+            try {
+                Date tiempoDePartidaDriver = formatoHora.parse(hora);
+                subway1.assignDriverToTrain(subway1.getTrainList().get(comboBox58.getSelectedIndex()),subway1.getDriverListSubway().get(comboBox57.getSelectedIndex()),tiempoDePartidaDriver,listaStations1.get(comboBox55.getSelectedIndex()),listaStations1.get(comboBox56.getSelectedIndex()));
+                JOptionPane.showMessageDialog(null, "Asignado correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
+            } catch (ParseException r) {
+                r.printStackTrace();
+            }
+        }
+    }
+
+    private void ConfirmarObjeto4(ActionEvent e) {
+        if (subway1.getTrainList().get(comboBox62.getSelectedIndex()).getDriverTrain() != null) {
+            JOptionPane.showMessageDialog(null, "A este tren ya le fue asignado conductor", "Información", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            String hora = textField12.getText();
+            try {
+                Date tiempoDePartidaDriver = formatoHora.parse(hora);
+                subway1.assignDriverToTrain(subway1.getTrainList().get(comboBox62.getSelectedIndex()),subway1.getDriverListSubway().get(comboBox61.getSelectedIndex()),tiempoDePartidaDriver,listaStations1.get(comboBox59.getSelectedIndex()),listaStations1.get(comboBox60.getSelectedIndex()));
+                JOptionPane.showMessageDialog(null, "Asignado correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
+            } catch (ParseException r) {
+                r.printStackTrace();
+            }
+        }
+    }
+
+    private void Volver36a21(ActionEvent e) {
+        frame21.setVisible(true);
+        frame36.setVisible(false);
+    }
+
+    private void Volver37(ActionEvent e) {
+        frame37.setVisible(false);
+        frame21.setVisible(true);
+    }
+
+    private void Volver38(ActionEvent e) {
+        frame38.setVisible(false);
+        frame21.setVisible(true);
+    }
+
+    private void Volver39(ActionEvent e) {
+        frame39.setVisible(false);
+        frame21.setVisible(true);
+    }
+
+    private void Volver28(ActionEvent e) {
+        frame28.setVisible(false);
+        frame21.setVisible(true);
+    }
+
+    private void De35a26(ActionEvent e) {
+        frame26.setVisible(true);
+        frame35.setVisible(false);
+    }
+
+    private void Volver26a34(ActionEvent e) {
+        frame26.setVisible(false);
+        frame34.setVisible(true);
+    }
+
+    private void Volver24a35(ActionEvent e) {
+        frame26.setVisible(false);
+        frame35.setVisible(true);
+    }
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents  @formatter:off
@@ -1183,9 +1539,11 @@ public class mainMenu extends JFrame {
         button26 = new JButton();
         button27 = new JButton();
         frame6 = new JFrame();
-        button35 = new JButton();
-        button36 = new JButton();
+        label34 = new JLabel();
+        button115 = new JButton();
+        button116 = new JButton();
         button37 = new JButton();
+        button118 = new JButton();
         frame7 = new JFrame();
         label4 = new JLabel();
         button38 = new JButton();
@@ -1324,6 +1682,174 @@ public class mainMenu extends JFrame {
         comboBox25 = new JComboBox<>();
         button94 = new JButton();
         button95 = new JButton();
+        frame28 = new JFrame();
+        label35 = new JLabel();
+        button97 = new JButton();
+        button105 = new JButton();
+        comboBox31 = new JComboBox<>();
+        button135 = new JButton();
+        frame29 = new JFrame();
+        label36 = new JLabel();
+        comboBox26 = new JComboBox<>();
+        label38 = new JLabel();
+        comboBox27 = new JComboBox<>();
+        label39 = new JLabel();
+        comboBox30 = new JComboBox<>();
+        label40 = new JLabel();
+        textField1 = new JTextField();
+        label41 = new JLabel();
+        label42 = new JLabel();
+        comboBox32 = new JComboBox<>();
+        label43 = new JLabel();
+        button106 = new JButton();
+        button107 = new JButton();
+        frame31 = new JFrame();
+        label44 = new JLabel();
+        comboBox33 = new JComboBox<>();
+        label45 = new JLabel();
+        comboBox34 = new JComboBox<>();
+        label46 = new JLabel();
+        comboBox35 = new JComboBox<>();
+        label47 = new JLabel();
+        textField2 = new JTextField();
+        label48 = new JLabel();
+        label49 = new JLabel();
+        comboBox36 = new JComboBox<>();
+        label50 = new JLabel();
+        button108 = new JButton();
+        button109 = new JButton();
+        frame32 = new JFrame();
+        label51 = new JLabel();
+        comboBox37 = new JComboBox<>();
+        label52 = new JLabel();
+        comboBox38 = new JComboBox<>();
+        label53 = new JLabel();
+        comboBox39 = new JComboBox<>();
+        label54 = new JLabel();
+        textField3 = new JTextField();
+        label55 = new JLabel();
+        label56 = new JLabel();
+        comboBox40 = new JComboBox<>();
+        label57 = new JLabel();
+        button110 = new JButton();
+        button111 = new JButton();
+        frame33 = new JFrame();
+        label58 = new JLabel();
+        comboBox41 = new JComboBox<>();
+        label59 = new JLabel();
+        comboBox42 = new JComboBox<>();
+        label60 = new JLabel();
+        comboBox43 = new JComboBox<>();
+        label61 = new JLabel();
+        textField4 = new JTextField();
+        label62 = new JLabel();
+        label63 = new JLabel();
+        comboBox44 = new JComboBox<>();
+        label64 = new JLabel();
+        button112 = new JButton();
+        button113 = new JButton();
+        frame26 = new JFrame();
+        label37 = new JLabel();
+        button119 = new JButton();
+        button120 = new JButton();
+        button121 = new JButton();
+        button122 = new JButton();
+        frame27 = new JFrame();
+        comboBox28 = new JComboBox<>();
+        label65 = new JLabel();
+        label68 = new JLabel();
+        textField5 = new JTextField();
+        label66 = new JLabel();
+        label67 = new JLabel();
+        button123 = new JButton();
+        button124 = new JButton();
+        frame30 = new JFrame();
+        comboBox29 = new JComboBox<>();
+        label69 = new JLabel();
+        label70 = new JLabel();
+        textField6 = new JTextField();
+        label71 = new JLabel();
+        label72 = new JLabel();
+        button125 = new JButton();
+        button126 = new JButton();
+        frame34 = new JFrame();
+        comboBox45 = new JComboBox<>();
+        label73 = new JLabel();
+        label74 = new JLabel();
+        textField7 = new JTextField();
+        label75 = new JLabel();
+        label76 = new JLabel();
+        button35 = new JButton();
+        button114 = new JButton();
+        frame35 = new JFrame();
+        comboBox46 = new JComboBox<>();
+        label77 = new JLabel();
+        label78 = new JLabel();
+        textField8 = new JTextField();
+        label79 = new JLabel();
+        label80 = new JLabel();
+        button36 = new JButton();
+        button136 = new JButton();
+        frame36 = new JFrame();
+        label81 = new JLabel();
+        comboBox47 = new JComboBox<>();
+        label82 = new JLabel();
+        comboBox48 = new JComboBox<>();
+        label83 = new JLabel();
+        comboBox49 = new JComboBox<>();
+        label84 = new JLabel();
+        textField9 = new JTextField();
+        label85 = new JLabel();
+        label86 = new JLabel();
+        comboBox50 = new JComboBox<>();
+        label87 = new JLabel();
+        button127 = new JButton();
+        button128 = new JButton();
+        frame37 = new JFrame();
+        label88 = new JLabel();
+        comboBox51 = new JComboBox<>();
+        label89 = new JLabel();
+        comboBox52 = new JComboBox<>();
+        label90 = new JLabel();
+        comboBox53 = new JComboBox<>();
+        label91 = new JLabel();
+        textField10 = new JTextField();
+        label92 = new JLabel();
+        label93 = new JLabel();
+        comboBox54 = new JComboBox<>();
+        label94 = new JLabel();
+        button129 = new JButton();
+        button130 = new JButton();
+        frame38 = new JFrame();
+        label95 = new JLabel();
+        comboBox55 = new JComboBox<>();
+        label96 = new JLabel();
+        comboBox56 = new JComboBox<>();
+        label97 = new JLabel();
+        comboBox57 = new JComboBox<>();
+        label98 = new JLabel();
+        textField11 = new JTextField();
+        label99 = new JLabel();
+        label100 = new JLabel();
+        comboBox58 = new JComboBox<>();
+        label101 = new JLabel();
+        button131 = new JButton();
+        button132 = new JButton();
+        frame39 = new JFrame();
+        label102 = new JLabel();
+        comboBox59 = new JComboBox<>();
+        label103 = new JLabel();
+        comboBox60 = new JComboBox<>();
+        label104 = new JLabel();
+        comboBox61 = new JComboBox<>();
+        label105 = new JLabel();
+        textField12 = new JTextField();
+        label106 = new JLabel();
+        label107 = new JLabel();
+        comboBox62 = new JComboBox<>();
+        label108 = new JLabel();
+        button133 = new JButton();
+        button134 = new JButton();
 
         //======== this ========
         var contentPane = getContentPane();
@@ -1695,7 +2221,6 @@ public class mainMenu extends JFrame {
                 "[fill]" +
                 "[fill]" +
                 "[fill]" +
-                "[fill]" +
                 "[fill]",
                 // rows
                 "[]" +
@@ -1707,18 +2232,29 @@ public class mainMenu extends JFrame {
                 "[]" +
                 "[]"));
 
-            //---- button35 ----
-            button35.setText("whereIsTrain");
-            frame6ContentPane.add(button35, "cell 1 2 3 2");
+            //---- label34 ----
+            label34.setText("Seleccion actual: Por ID");
+            frame6ContentPane.add(label34, "cell 0 0");
 
-            //---- button36 ----
-            button36.setText("trainPath");
-            frame6ContentPane.add(button36, "cell 1 4 3 2");
+            //---- button115 ----
+            button115.setText("whereIsTrain");
+            button115.addActionListener(e -> Volvera27(e));
+            frame6ContentPane.add(button115, "cell 0 1");
+
+            //---- button116 ----
+            button116.setText("trainPath");
+            button116.addActionListener(e -> Volvera30(e));
+            frame6ContentPane.add(button116, "cell 0 2");
 
             //---- button37 ----
             button37.setText("Volver");
             button37.addActionListener(e -> VolverDesdeTrains(e));
-            frame6ContentPane.add(button37, "cell 7 5");
+            frame6ContentPane.add(button37, "cell 0 3");
+
+            //---- button118 ----
+            button118.setText("Train por objeto");
+            button118.addActionListener(e -> Frame26Volver(e));
+            frame6ContentPane.add(button118, "cell 0 4");
             frame6.pack();
             frame6.setLocationRelativeTo(frame6.getOwner());
         }
@@ -3038,6 +3574,7 @@ public class mainMenu extends JFrame {
 
             //---- button96 ----
             button96.setText("AssignDriverToTrain");
+            button96.addActionListener(e -> AssignDriver3(e));
             frame21ContentPane.add(button96, "cell 1 3");
 
             //---- button100 ----
@@ -3301,6 +3838,1581 @@ public class mainMenu extends JFrame {
             frame25.pack();
             frame25.setLocationRelativeTo(frame25.getOwner());
         }
+
+        //======== frame28 ========
+        {
+            var frame28ContentPane = frame28.getContentPane();
+            frame28ContentPane.setLayout(new MigLayout(
+                "hidemode 3",
+                // columns
+                "[fill]" +
+                "[fill]",
+                // rows
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]"));
+
+            //---- label35 ----
+            label35.setText("Se debe asignar estaciones de partida y llegada del conductor");
+            frame28ContentPane.add(label35, "cell 0 0");
+
+            //---- button97 ----
+            button97.setText("Buscar estacion por ID");
+            button97.addActionListener(e -> BusquedaPorID(e));
+            frame28ContentPane.add(button97, "cell 0 1");
+
+            //---- button105 ----
+            button105.setText("Buscar estacion por objeto");
+            button105.addActionListener(e -> BusquedaPorObjeto(e));
+            frame28ContentPane.add(button105, "cell 0 2");
+
+            //---- comboBox31 ----
+            comboBox31.setModel(new DefaultComboBoxModel<>(new String[] {
+                "Linea 1",
+                "Linea 2",
+                "Linea 3",
+                "Linea 4"
+            }));
+            frame28ContentPane.add(comboBox31, "cell 0 3");
+
+            //---- button135 ----
+            button135.setText("Volver");
+            button135.addActionListener(e -> Volver28(e));
+            frame28ContentPane.add(button135, "cell 0 4");
+            frame28.pack();
+            frame28.setLocationRelativeTo(frame28.getOwner());
+        }
+
+        //======== frame29 ========
+        {
+            var frame29ContentPane = frame29.getContentPane();
+            frame29ContentPane.setLayout(new MigLayout(
+                "hidemode 3",
+                // columns
+                "[fill]" +
+                "[fill]" +
+                "[fill]",
+                // rows
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]"));
+
+            //---- label36 ----
+            label36.setText("Busqueda por ID : Linea 1");
+            frame29ContentPane.add(label36, "cell 0 0 2 1,align center center,grow 0 0");
+
+            //---- comboBox26 ----
+            comboBox26.setModel(new DefaultComboBoxModel<>(new String[] {
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "18",
+                "19",
+                "20",
+                "21",
+                "22",
+                "23",
+                "24",
+                "25",
+                "26",
+                "27",
+                "28",
+                "29",
+                "30",
+                "31",
+                "32",
+                "33",
+                "34",
+                "35"
+            }));
+            frame29ContentPane.add(comboBox26, "cell 0 1 2 1");
+
+            //---- label38 ----
+            label38.setText("Partida");
+            frame29ContentPane.add(label38, "cell 2 1");
+
+            //---- comboBox27 ----
+            comboBox27.setModel(new DefaultComboBoxModel<>(new String[] {
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "18",
+                "19",
+                "20",
+                "21",
+                "22",
+                "23",
+                "24",
+                "25",
+                "26",
+                "27",
+                "28",
+                "29",
+                "30",
+                "31",
+                "32",
+                "33",
+                "34",
+                "35"
+            }));
+            frame29ContentPane.add(comboBox27, "cell 0 2 2 1");
+
+            //---- label39 ----
+            label39.setText("Llegada");
+            frame29ContentPane.add(label39, "cell 2 2");
+
+            //---- comboBox30 ----
+            comboBox30.setModel(new DefaultComboBoxModel<>(new String[] {
+                "Isaac Newton",
+                "Nikola Tesla",
+                "Arquimedes",
+                "Albert Einstein"
+            }));
+            frame29ContentPane.add(comboBox30, "cell 0 3 2 1");
+
+            //---- label40 ----
+            label40.setText("Driver");
+            frame29ContentPane.add(label40, "cell 2 3");
+            frame29ContentPane.add(textField1, "cell 0 4 2 1");
+
+            //---- label41 ----
+            label41.setText("Hora de inicio de trabajo");
+            frame29ContentPane.add(label41, "cell 2 4");
+
+            //---- label42 ----
+            label42.setText("(En formato HH:mm) Ejemplo: 10:45");
+            frame29ContentPane.add(label42, "cell 2 5");
+
+            //---- comboBox32 ----
+            comboBox32.setModel(new DefaultComboBoxModel<>(new String[] {
+                "Tren 1",
+                "Tren 2",
+                "Tren 3",
+                "Tren 4"
+            }));
+            frame29ContentPane.add(comboBox32, "cell 0 6 2 1");
+
+            //---- label43 ----
+            label43.setText("Tren");
+            frame29ContentPane.add(label43, "cell 2 6");
+
+            //---- button106 ----
+            button106.setText("Confirmar");
+            button106.addActionListener(e -> ConfirmarLinea1TrainLine(e));
+            frame29ContentPane.add(button106, "cell 0 7 2 1");
+
+            //---- button107 ----
+            button107.setText("Volver");
+            button107.addActionListener(e -> Volver21(e));
+            frame29ContentPane.add(button107, "cell 0 8 2 1");
+            frame29.pack();
+            frame29.setLocationRelativeTo(frame29.getOwner());
+        }
+
+        //======== frame31 ========
+        {
+            var frame31ContentPane = frame31.getContentPane();
+            frame31ContentPane.setLayout(new MigLayout(
+                "hidemode 3",
+                // columns
+                "[fill]" +
+                "[fill]" +
+                "[fill]",
+                // rows
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]"));
+
+            //---- label44 ----
+            label44.setText("Busqueda por ID : Linea 2");
+            frame31ContentPane.add(label44, "cell 0 0 2 1,align center center,grow 0 0");
+
+            //---- comboBox33 ----
+            comboBox33.setModel(new DefaultComboBoxModel<>(new String[] {
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "18",
+                "19",
+                "20",
+                "21",
+                "22",
+                "23",
+                "24",
+                "25",
+                "26",
+                "27",
+                "28",
+                "29",
+                "30",
+                "31",
+                "32",
+                "33",
+                "34",
+                "35"
+            }));
+            frame31ContentPane.add(comboBox33, "cell 0 1 2 1");
+
+            //---- label45 ----
+            label45.setText("Partida");
+            frame31ContentPane.add(label45, "cell 2 1");
+
+            //---- comboBox34 ----
+            comboBox34.setModel(new DefaultComboBoxModel<>(new String[] {
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "18",
+                "19",
+                "20",
+                "21",
+                "22",
+                "23",
+                "24",
+                "25",
+                "26",
+                "27",
+                "28",
+                "29",
+                "30",
+                "31",
+                "32",
+                "33",
+                "34",
+                "35"
+            }));
+            frame31ContentPane.add(comboBox34, "cell 0 2 2 1");
+
+            //---- label46 ----
+            label46.setText("Llegada");
+            frame31ContentPane.add(label46, "cell 2 2");
+
+            //---- comboBox35 ----
+            comboBox35.setModel(new DefaultComboBoxModel<>(new String[] {
+                "Isaac Newton",
+                "Nikola Tesla",
+                "Arquimedes",
+                "Albert Einstein"
+            }));
+            frame31ContentPane.add(comboBox35, "cell 0 3 2 1");
+
+            //---- label47 ----
+            label47.setText("Driver");
+            frame31ContentPane.add(label47, "cell 2 3");
+            frame31ContentPane.add(textField2, "cell 0 4 2 1");
+
+            //---- label48 ----
+            label48.setText("Hora de inicio de trabajo");
+            frame31ContentPane.add(label48, "cell 2 4");
+
+            //---- label49 ----
+            label49.setText("(En formato HH:mm) Ejemplo: 10:45");
+            frame31ContentPane.add(label49, "cell 2 5");
+
+            //---- comboBox36 ----
+            comboBox36.setModel(new DefaultComboBoxModel<>(new String[] {
+                "Tren 1",
+                "Tren 2",
+                "Tren 3",
+                "Tren 4"
+            }));
+            frame31ContentPane.add(comboBox36, "cell 0 6 2 1");
+
+            //---- label50 ----
+            label50.setText("Tren");
+            frame31ContentPane.add(label50, "cell 2 6");
+
+            //---- button108 ----
+            button108.setText("Confirmar");
+            button108.addActionListener(e -> ConfirmarTrainLinea2(e));
+            frame31ContentPane.add(button108, "cell 0 7 2 1");
+
+            //---- button109 ----
+            button109.setText("Volver");
+            button109.addActionListener(e -> Vovler32(e));
+            frame31ContentPane.add(button109, "cell 0 8 2 1");
+            frame31.pack();
+            frame31.setLocationRelativeTo(frame31.getOwner());
+        }
+
+        //======== frame32 ========
+        {
+            var frame32ContentPane = frame32.getContentPane();
+            frame32ContentPane.setLayout(new MigLayout(
+                "hidemode 3",
+                // columns
+                "[fill]" +
+                "[fill]" +
+                "[fill]",
+                // rows
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]"));
+
+            //---- label51 ----
+            label51.setText("Busqueda por ID : Linea 3");
+            frame32ContentPane.add(label51, "cell 0 0 2 1,align center center,grow 0 0");
+
+            //---- comboBox37 ----
+            comboBox37.setModel(new DefaultComboBoxModel<>(new String[] {
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "18",
+                "19",
+                "20",
+                "21",
+                "22",
+                "23",
+                "24",
+                "25",
+                "26",
+                "27",
+                "28",
+                "29",
+                "30",
+                "31",
+                "32",
+                "33",
+                "34",
+                "35"
+            }));
+            frame32ContentPane.add(comboBox37, "cell 0 1 2 1");
+
+            //---- label52 ----
+            label52.setText("Partida");
+            frame32ContentPane.add(label52, "cell 2 1");
+
+            //---- comboBox38 ----
+            comboBox38.setModel(new DefaultComboBoxModel<>(new String[] {
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "18",
+                "19",
+                "20",
+                "21",
+                "22",
+                "23",
+                "24",
+                "25",
+                "26",
+                "27",
+                "28",
+                "29",
+                "30",
+                "31",
+                "32",
+                "33",
+                "34",
+                "35"
+            }));
+            frame32ContentPane.add(comboBox38, "cell 0 2 2 1");
+
+            //---- label53 ----
+            label53.setText("Llegada");
+            frame32ContentPane.add(label53, "cell 2 2");
+
+            //---- comboBox39 ----
+            comboBox39.setModel(new DefaultComboBoxModel<>(new String[] {
+                "Isaac Newton",
+                "Nikola Tesla",
+                "Arquimedes",
+                "Albert Einstein"
+            }));
+            frame32ContentPane.add(comboBox39, "cell 0 3 2 1");
+
+            //---- label54 ----
+            label54.setText("Driver");
+            frame32ContentPane.add(label54, "cell 2 3");
+            frame32ContentPane.add(textField3, "cell 0 4 2 1");
+
+            //---- label55 ----
+            label55.setText("Hora de inicio de trabajo");
+            frame32ContentPane.add(label55, "cell 2 4");
+
+            //---- label56 ----
+            label56.setText("(En formato HH:mm) Ejemplo: 10:45");
+            frame32ContentPane.add(label56, "cell 2 5");
+
+            //---- comboBox40 ----
+            comboBox40.setModel(new DefaultComboBoxModel<>(new String[] {
+                "Tren 1",
+                "Tren 2",
+                "Tren 3",
+                "Tren 4"
+            }));
+            frame32ContentPane.add(comboBox40, "cell 0 6 2 1");
+
+            //---- label57 ----
+            label57.setText("Tren");
+            frame32ContentPane.add(label57, "cell 2 6");
+
+            //---- button110 ----
+            button110.setText("Confirmar");
+            button110.addActionListener(e -> ConfirmarLinea3Train(e));
+            frame32ContentPane.add(button110, "cell 0 7 2 1");
+
+            //---- button111 ----
+            button111.setText("Volver");
+            button111.addActionListener(e -> Volver32(e));
+            frame32ContentPane.add(button111, "cell 0 8 2 1");
+            frame32.pack();
+            frame32.setLocationRelativeTo(frame32.getOwner());
+        }
+
+        //======== frame33 ========
+        {
+            var frame33ContentPane = frame33.getContentPane();
+            frame33ContentPane.setLayout(new MigLayout(
+                "hidemode 3",
+                // columns
+                "[fill]" +
+                "[fill]" +
+                "[fill]",
+                // rows
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]"));
+
+            //---- label58 ----
+            label58.setText("Busqueda por ID : Linea 4");
+            frame33ContentPane.add(label58, "cell 0 0 2 1,align center center,grow 0 0");
+
+            //---- comboBox41 ----
+            comboBox41.setModel(new DefaultComboBoxModel<>(new String[] {
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "18",
+                "19",
+                "20",
+                "21",
+                "22",
+                "23",
+                "24",
+                "25",
+                "26",
+                "27",
+                "28",
+                "29",
+                "30",
+                "31",
+                "32",
+                "33",
+                "34",
+                "35"
+            }));
+            frame33ContentPane.add(comboBox41, "cell 0 1 2 1");
+
+            //---- label59 ----
+            label59.setText("Partida");
+            frame33ContentPane.add(label59, "cell 2 1");
+
+            //---- comboBox42 ----
+            comboBox42.setModel(new DefaultComboBoxModel<>(new String[] {
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "18",
+                "19",
+                "20",
+                "21",
+                "22",
+                "23",
+                "24",
+                "25",
+                "26",
+                "27",
+                "28",
+                "29",
+                "30",
+                "31",
+                "32",
+                "33",
+                "34",
+                "35"
+            }));
+            frame33ContentPane.add(comboBox42, "cell 0 2 2 1");
+
+            //---- label60 ----
+            label60.setText("Llegada");
+            frame33ContentPane.add(label60, "cell 2 2");
+
+            //---- comboBox43 ----
+            comboBox43.setModel(new DefaultComboBoxModel<>(new String[] {
+                "Isaac Newton",
+                "Nikola Tesla",
+                "Arquimedes",
+                "Albert Einstein"
+            }));
+            frame33ContentPane.add(comboBox43, "cell 0 3 2 1");
+
+            //---- label61 ----
+            label61.setText("Driver");
+            frame33ContentPane.add(label61, "cell 2 3");
+            frame33ContentPane.add(textField4, "cell 0 4 2 1");
+
+            //---- label62 ----
+            label62.setText("Hora de inicio de trabajo");
+            frame33ContentPane.add(label62, "cell 2 4");
+
+            //---- label63 ----
+            label63.setText("(En formato HH:mm) Ejemplo: 10:45");
+            frame33ContentPane.add(label63, "cell 2 5");
+
+            //---- comboBox44 ----
+            comboBox44.setModel(new DefaultComboBoxModel<>(new String[] {
+                "Tren 1",
+                "Tren 2",
+                "Tren 3",
+                "Tren 4"
+            }));
+            frame33ContentPane.add(comboBox44, "cell 0 6 2 1");
+
+            //---- label64 ----
+            label64.setText("Tren");
+            frame33ContentPane.add(label64, "cell 2 6");
+
+            //---- button112 ----
+            button112.setText("Confirmar");
+            button112.addActionListener(e -> ConfirmarLinea4Train(e));
+            frame33ContentPane.add(button112, "cell 0 8 2 1");
+
+            //---- button113 ----
+            button113.setText("Volver");
+            button113.addActionListener(e -> Volver33(e));
+            frame33ContentPane.add(button113, "cell 0 9 2 1");
+            frame33.pack();
+            frame33.setLocationRelativeTo(frame33.getOwner());
+        }
+
+        //======== frame26 ========
+        {
+            var frame26ContentPane = frame26.getContentPane();
+            frame26ContentPane.setLayout(new MigLayout(
+                "hidemode 3",
+                // columns
+                "[fill]" +
+                "[fill]",
+                // rows
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]"));
+
+            //---- label37 ----
+            label37.setText("Seleccion actual: Por objeto");
+            frame26ContentPane.add(label37, "cell 0 0");
+
+            //---- button119 ----
+            button119.setText("whereIsTrain");
+            button119.addActionListener(e -> Volver26a34(e));
+            frame26ContentPane.add(button119, "cell 0 1");
+
+            //---- button120 ----
+            button120.setText("trainPath");
+            button120.addActionListener(e -> Volver24a35(e));
+            frame26ContentPane.add(button120, "cell 0 2");
+
+            //---- button121 ----
+            button121.setText("Volver");
+            button121.addActionListener(e -> volver26(e));
+            frame26ContentPane.add(button121, "cell 0 3");
+
+            //---- button122 ----
+            button122.setText("Train por ID");
+            button122.addActionListener(e -> Frame6Vovler3(e));
+            frame26ContentPane.add(button122, "cell 0 4");
+            frame26.pack();
+            frame26.setLocationRelativeTo(frame26.getOwner());
+        }
+
+        //======== frame27 ========
+        {
+            var frame27ContentPane = frame27.getContentPane();
+            frame27ContentPane.setLayout(new MigLayout(
+                "hidemode 3",
+                // columns
+                "[fill]" +
+                "[fill]" +
+                "[fill]" +
+                "[fill]" +
+                "[fill]" +
+                "[fill]" +
+                "[fill]" +
+                "[fill]" +
+                "[fill]",
+                // rows
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]"));
+
+            //---- comboBox28 ----
+            comboBox28.setModel(new DefaultComboBoxModel<>(new String[] {
+                "0",
+                "1",
+                "2",
+                "3 "
+            }));
+            frame27ContentPane.add(comboBox28, "cell 0 0");
+
+            //---- label65 ----
+            label65.setText("Id");
+            frame27ContentPane.add(label65, "cell 1 0");
+
+            //---- label68 ----
+            label68.setText("whereIsTrain");
+            frame27ContentPane.add(label68, "cell 1 0");
+            frame27ContentPane.add(textField5, "cell 0 1");
+
+            //---- label66 ----
+            label66.setText("Hora, en formato");
+            frame27ContentPane.add(label66, "cell 1 1");
+
+            //---- label67 ----
+            label67.setText("hh:mm Ejemplo: 15:40");
+            frame27ContentPane.add(label67, "cell 1 2");
+
+            //---- button123 ----
+            button123.setText("Confirmar");
+            button123.addActionListener(e -> ConfirmarWhereIsTrainID(e));
+            frame27ContentPane.add(button123, "cell 0 3 3 1");
+
+            //---- button124 ----
+            button124.setText("Volver");
+            button124.addActionListener(e -> Volver27A6(e));
+            frame27ContentPane.add(button124, "cell 0 4 3 1");
+            frame27.pack();
+            frame27.setLocationRelativeTo(frame27.getOwner());
+        }
+
+        //======== frame30 ========
+        {
+            var frame30ContentPane = frame30.getContentPane();
+            frame30ContentPane.setLayout(new MigLayout(
+                "hidemode 3",
+                // columns
+                "[fill]" +
+                "[fill]" +
+                "[fill]" +
+                "[fill]" +
+                "[fill]" +
+                "[fill]" +
+                "[fill]" +
+                "[fill]" +
+                "[fill]",
+                // rows
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]"));
+
+            //---- comboBox29 ----
+            comboBox29.setModel(new DefaultComboBoxModel<>(new String[] {
+                "0",
+                "1",
+                "2",
+                "3 "
+            }));
+            frame30ContentPane.add(comboBox29, "cell 0 0");
+
+            //---- label69 ----
+            label69.setText("Id");
+            frame30ContentPane.add(label69, "cell 1 0");
+
+            //---- label70 ----
+            label70.setText("trainPath");
+            frame30ContentPane.add(label70, "cell 1 0");
+            frame30ContentPane.add(textField6, "cell 0 1");
+
+            //---- label71 ----
+            label71.setText("Hora, en formato");
+            frame30ContentPane.add(label71, "cell 1 1");
+
+            //---- label72 ----
+            label72.setText("hh:mm Ejemplo: 15:40");
+            frame30ContentPane.add(label72, "cell 1 2");
+
+            //---- button125 ----
+            button125.setText("Confirmar");
+            button125.addActionListener(e -> ConfirmarUltimaFuncion(e));
+            frame30ContentPane.add(button125, "cell 0 3 2 1");
+
+            //---- button126 ----
+            button126.setText("Volver");
+            button126.addActionListener(e -> Frame30Al6(e));
+            frame30ContentPane.add(button126, "cell 0 4 2 1");
+            frame30.pack();
+            frame30.setLocationRelativeTo(frame30.getOwner());
+        }
+
+        //======== frame34 ========
+        {
+            var frame34ContentPane = frame34.getContentPane();
+            frame34ContentPane.setLayout(new MigLayout(
+                "hidemode 3",
+                // columns
+                "[fill]" +
+                "[fill]" +
+                "[fill]" +
+                "[fill]" +
+                "[fill]" +
+                "[fill]" +
+                "[fill]" +
+                "[fill]" +
+                "[fill]",
+                // rows
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]"));
+
+            //---- comboBox45 ----
+            comboBox45.setModel(new DefaultComboBoxModel<>(new String[] {
+                "Tren 1",
+                "Tren 2",
+                "Tren 3",
+                "Tren 4"
+            }));
+            frame34ContentPane.add(comboBox45, "cell 0 0");
+
+            //---- label73 ----
+            label73.setText("Objeto");
+            frame34ContentPane.add(label73, "cell 1 0");
+
+            //---- label74 ----
+            label74.setText("whereIsTrain");
+            frame34ContentPane.add(label74, "cell 1 0");
+            frame34ContentPane.add(textField7, "cell 0 1");
+
+            //---- label75 ----
+            label75.setText("Hora, en formato");
+            frame34ContentPane.add(label75, "cell 1 1");
+
+            //---- label76 ----
+            label76.setText("hh:mm Ejemplo: 15:40");
+            frame34ContentPane.add(label76, "cell 1 2");
+
+            //---- button35 ----
+            button35.setText("Confirmar");
+            button35.addActionListener(e -> ConfirmarObjeto1(e));
+            frame34ContentPane.add(button35, "cell 0 3 2 1");
+
+            //---- button114 ----
+            button114.setText("Volver");
+            button114.addActionListener(e -> Volver34a26(e));
+            frame34ContentPane.add(button114, "cell 0 4 2 1");
+            frame34.pack();
+            frame34.setLocationRelativeTo(frame34.getOwner());
+        }
+
+        //======== frame35 ========
+        {
+            var frame35ContentPane = frame35.getContentPane();
+            frame35ContentPane.setLayout(new MigLayout(
+                "hidemode 3",
+                // columns
+                "[fill]" +
+                "[fill]" +
+                "[fill]" +
+                "[fill]" +
+                "[fill]" +
+                "[fill]" +
+                "[fill]" +
+                "[fill]" +
+                "[fill]",
+                // rows
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]"));
+
+            //---- comboBox46 ----
+            comboBox46.setModel(new DefaultComboBoxModel<>(new String[] {
+                "Tren 1",
+                "Tren 2",
+                "Tren 3",
+                "Tren 4"
+            }));
+            frame35ContentPane.add(comboBox46, "cell 0 0");
+
+            //---- label77 ----
+            label77.setText("Objeto");
+            frame35ContentPane.add(label77, "cell 1 0");
+
+            //---- label78 ----
+            label78.setText("trainPath");
+            frame35ContentPane.add(label78, "cell 1 0");
+            frame35ContentPane.add(textField8, "cell 0 1");
+
+            //---- label79 ----
+            label79.setText("Hora, en formato");
+            frame35ContentPane.add(label79, "cell 1 1");
+
+            //---- label80 ----
+            label80.setText("hh:mm Ejemplo: 15:40");
+            frame35ContentPane.add(label80, "cell 1 2");
+
+            //---- button36 ----
+            button36.setText("Confirmar");
+            button36.addActionListener(e -> ConfirmarTrenObjeto2(e));
+            frame35ContentPane.add(button36, "cell 0 3 2 1");
+
+            //---- button136 ----
+            button136.setText("Volver");
+            button136.addActionListener(e -> De35a26(e));
+            frame35ContentPane.add(button136, "cell 0 4 2 1");
+            frame35.pack();
+            frame35.setLocationRelativeTo(frame35.getOwner());
+        }
+
+        //======== frame36 ========
+        {
+            var frame36ContentPane = frame36.getContentPane();
+            frame36ContentPane.setLayout(new MigLayout(
+                "hidemode 3",
+                // columns
+                "[fill]" +
+                "[fill]" +
+                "[fill]",
+                // rows
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]"));
+
+            //---- label81 ----
+            label81.setText("Busqueda por Objeto : Linea 1");
+            frame36ContentPane.add(label81, "cell 0 0 2 1,align center center,grow 0 0");
+
+            //---- comboBox47 ----
+            comboBox47.setModel(new DefaultComboBoxModel<>(new String[] {
+                "San pablo",
+                "Neptuno",
+                "Pajaritos",
+                "Las Rejas",
+                "Ecuador",
+                "San Alberto Hurtado",
+                "Universidad de Santiago de Chile",
+                "Estacion Central",
+                "ULA",
+                "Republica",
+                "Los heroes",
+                "La moneda",
+                "Universidad de Chile",
+                "Santa lucia",
+                "Universidad Catolica",
+                "Baquedano",
+                "Salvador",
+                "Manuel Montt",
+                "Pedro de Valdivia",
+                "Los Leones",
+                "Tobalaba",
+                "El Golf",
+                "Alcantara",
+                "Escuela Militar",
+                "Manquehue",
+                "Hernando de Magallanes",
+                "Los Dominicos"
+            }));
+            frame36ContentPane.add(comboBox47, "cell 0 1 2 1");
+
+            //---- label82 ----
+            label82.setText("Partida");
+            frame36ContentPane.add(label82, "cell 2 1");
+
+            //---- comboBox48 ----
+            comboBox48.setModel(new DefaultComboBoxModel<>(new String[] {
+                "San pablo",
+                "Neptuno",
+                "Pajaritos",
+                "Las Rejas",
+                "Ecuador",
+                "San Alberto Hurtado",
+                "Universidad de Santiago de Chile",
+                "Estacion Central",
+                "ULA",
+                "Republica",
+                "Los heroes",
+                "La moneda",
+                "Universidad de Chile",
+                "Santa lucia",
+                "Universidad Catolica",
+                "Baquedano",
+                "Salvador",
+                "Manuel Montt",
+                "Pedro de Valdivia",
+                "Los Leones",
+                "Tobalaba",
+                "El Golf",
+                "Alcantara",
+                "Escuela Militar",
+                "Manquehue",
+                "Hernando de Magallanes",
+                "Los Dominicos"
+            }));
+            frame36ContentPane.add(comboBox48, "cell 0 2 2 1");
+
+            //---- label83 ----
+            label83.setText("Llegada");
+            frame36ContentPane.add(label83, "cell 2 2");
+
+            //---- comboBox49 ----
+            comboBox49.setModel(new DefaultComboBoxModel<>(new String[] {
+                "Isaac Newton",
+                "Nikola Tesla",
+                "Arquimedes",
+                "Albert Einstein"
+            }));
+            frame36ContentPane.add(comboBox49, "cell 0 3 2 1");
+
+            //---- label84 ----
+            label84.setText("Driver");
+            frame36ContentPane.add(label84, "cell 2 3");
+            frame36ContentPane.add(textField9, "cell 0 4 2 1");
+
+            //---- label85 ----
+            label85.setText("Hora de inicio de trabajo");
+            frame36ContentPane.add(label85, "cell 2 4");
+
+            //---- label86 ----
+            label86.setText("(En formato HH:mm) Ejemplo: 10:45");
+            frame36ContentPane.add(label86, "cell 2 5");
+
+            //---- comboBox50 ----
+            comboBox50.setModel(new DefaultComboBoxModel<>(new String[] {
+                "Tren 1",
+                "Tren 2",
+                "Tren 3",
+                "Tren 4"
+            }));
+            frame36ContentPane.add(comboBox50, "cell 0 6 2 1");
+
+            //---- label87 ----
+            label87.setText("Tren");
+            frame36ContentPane.add(label87, "cell 2 6");
+
+            //---- button127 ----
+            button127.setText("Confirmar");
+            button127.addActionListener(e -> ConfirmarLinea1objetoID(e));
+            frame36ContentPane.add(button127, "cell 0 8");
+
+            //---- button128 ----
+            button128.setText("Volver");
+            button128.addActionListener(e -> Volver36a21(e));
+            frame36ContentPane.add(button128, "cell 0 10");
+            frame36.pack();
+            frame36.setLocationRelativeTo(frame36.getOwner());
+        }
+
+        //======== frame37 ========
+        {
+            var frame37ContentPane = frame37.getContentPane();
+            frame37ContentPane.setLayout(new MigLayout(
+                "hidemode 3",
+                // columns
+                "[fill]" +
+                "[fill]" +
+                "[fill]",
+                // rows
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]"));
+
+            //---- label88 ----
+            label88.setText("Busqueda por Objeto : Linea 2");
+            frame37ContentPane.add(label88, "cell 0 0 2 1,align center center,grow 0 0");
+
+            //---- comboBox51 ----
+            comboBox51.setModel(new DefaultComboBoxModel<>(new String[] {
+                "Vespucio Norte",
+                "Zapadores",
+                "Dorsal",
+                "Einstein",
+                "Cementerios",
+                "Cerro Blanco",
+                "Patronato",
+                "Puente Cal y Canto",
+                "Santa Ana",
+                "Los H\u00e9roes",
+                "Toesca",
+                "Parque O Higgins",
+                "Rondizzoni",
+                "Franklin",
+                "El Llano",
+                "San Miguel",
+                "Lo Vial",
+                "Departamental",
+                "Ciudad del Nino",
+                "Lo Ovalle",
+                "El Parron",
+                "La Cisterna",
+                "Lo Espejo",
+                "Observatorio",
+                "Lo Martinez",
+                "Hospital El Pino"
+            }));
+            frame37ContentPane.add(comboBox51, "cell 0 1 2 1");
+
+            //---- label89 ----
+            label89.setText("Partida");
+            frame37ContentPane.add(label89, "cell 2 1");
+
+            //---- comboBox52 ----
+            comboBox52.setModel(new DefaultComboBoxModel<>(new String[] {
+                "Vespucio Norte",
+                "Zapadores",
+                "Dorsal",
+                "Einstein",
+                "Cementerios",
+                "Cerro Blanco",
+                "Patronato",
+                "Puente Cal y Canto",
+                "Santa Ana",
+                "Los H\u00e9roes",
+                "Toesca",
+                "Parque O Higgins",
+                "Rondizzoni",
+                "Franklin",
+                "El Llano",
+                "San Miguel",
+                "Lo Vial",
+                "Departamental",
+                "Ciudad del Nino",
+                "Lo Ovalle",
+                "El Parron",
+                "La Cisterna",
+                "Lo Espejo",
+                "Observatorio",
+                "Lo Martinez",
+                "Hospital El Pino"
+            }));
+            frame37ContentPane.add(comboBox52, "cell 0 2 2 1");
+
+            //---- label90 ----
+            label90.setText("Llegada");
+            frame37ContentPane.add(label90, "cell 2 2");
+
+            //---- comboBox53 ----
+            comboBox53.setModel(new DefaultComboBoxModel<>(new String[] {
+                "Isaac Newton",
+                "Nikola Tesla",
+                "Arquimedes",
+                "Albert Einstein"
+            }));
+            frame37ContentPane.add(comboBox53, "cell 0 3 2 1");
+
+            //---- label91 ----
+            label91.setText("Driver");
+            frame37ContentPane.add(label91, "cell 2 3");
+            frame37ContentPane.add(textField10, "cell 0 4 2 1");
+
+            //---- label92 ----
+            label92.setText("Hora de inicio de trabajo");
+            frame37ContentPane.add(label92, "cell 2 4");
+
+            //---- label93 ----
+            label93.setText("(En formato HH:mm) Ejemplo: 10:45");
+            frame37ContentPane.add(label93, "cell 2 5");
+
+            //---- comboBox54 ----
+            comboBox54.setModel(new DefaultComboBoxModel<>(new String[] {
+                "Tren 1",
+                "Tren 2",
+                "Tren 3",
+                "Tren 4"
+            }));
+            frame37ContentPane.add(comboBox54, "cell 0 6 2 1");
+
+            //---- label94 ----
+            label94.setText("Tren");
+            frame37ContentPane.add(label94, "cell 2 6");
+
+            //---- button129 ----
+            button129.setText("Volver");
+            button129.addActionListener(e -> Volver37(e));
+            frame37ContentPane.add(button129, "cell 0 8");
+
+            //---- button130 ----
+            button130.setText("Confirmar");
+            button130.addActionListener(e -> ConfirmarObjectLinea2(e));
+            frame37ContentPane.add(button130, "cell 0 7");
+            frame37.pack();
+            frame37.setLocationRelativeTo(frame37.getOwner());
+        }
+
+        //======== frame38 ========
+        {
+            var frame38ContentPane = frame38.getContentPane();
+            frame38ContentPane.setLayout(new MigLayout(
+                "hidemode 3",
+                // columns
+                "[fill]" +
+                "[fill]" +
+                "[fill]",
+                // rows
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]"));
+
+            //---- label95 ----
+            label95.setText("Busqueda por objeto : Linea 3");
+            frame38ContentPane.add(label95, "cell 0 0 2 1,align center center,grow 0 0");
+
+            //---- comboBox55 ----
+            comboBox55.setModel(new DefaultComboBoxModel<>(new String[] {
+                "Plaza Quilicura",
+                "Lo Cruzat",
+                "Ferrocarril",
+                "Los Libertadores",
+                "Cardenal Caro",
+                "Vivaceta",
+                "Conchali",
+                "Plaza Chacabuco",
+                "Hospitales",
+                "Puente Cal y Canto",
+                "Plaza de Armas",
+                "Universidad de Chile",
+                "Parque Almagro",
+                "Matta",
+                "Irarrazaval",
+                "Monsenor Eyzaguirre",
+                "Nunoa",
+                "Chile Espana",
+                "Villa Frei",
+                "Plaza Egana",
+                "Fernando Castillo Velasco"
+            }));
+            frame38ContentPane.add(comboBox55, "cell 0 1 2 1");
+
+            //---- label96 ----
+            label96.setText("Partida");
+            frame38ContentPane.add(label96, "cell 2 1");
+
+            //---- comboBox56 ----
+            comboBox56.setModel(new DefaultComboBoxModel<>(new String[] {
+                "Plaza Quilicura",
+                "Lo Cruzat",
+                "Ferrocarril",
+                "Los Libertadores",
+                "Cardenal Caro",
+                "Vivaceta",
+                "Conchali",
+                "Plaza Chacabuco",
+                "Hospitales",
+                "Puente Cal y Canto",
+                "Plaza de Armas",
+                "Universidad de Chile",
+                "Parque Almagro",
+                "Matta",
+                "Irarrazaval",
+                "Monsenor Eyzaguirre",
+                "Nunoa",
+                "Chile Espana",
+                "Villa Frei",
+                "Plaza Egana",
+                "Fernando Castillo Velasco"
+            }));
+            frame38ContentPane.add(comboBox56, "cell 0 2 2 1");
+
+            //---- label97 ----
+            label97.setText("Llegada");
+            frame38ContentPane.add(label97, "cell 2 2");
+
+            //---- comboBox57 ----
+            comboBox57.setModel(new DefaultComboBoxModel<>(new String[] {
+                "Isaac Newton",
+                "Nikola Tesla",
+                "Arquimedes",
+                "Albert Einstein"
+            }));
+            frame38ContentPane.add(comboBox57, "cell 0 3 2 1");
+
+            //---- label98 ----
+            label98.setText("Driver");
+            frame38ContentPane.add(label98, "cell 2 3");
+            frame38ContentPane.add(textField11, "cell 0 4 2 1");
+
+            //---- label99 ----
+            label99.setText("Hora de inicio de trabajo");
+            frame38ContentPane.add(label99, "cell 2 4");
+
+            //---- label100 ----
+            label100.setText("(En formato HH:mm) Ejemplo: 10:45");
+            frame38ContentPane.add(label100, "cell 2 5");
+
+            //---- comboBox58 ----
+            comboBox58.setModel(new DefaultComboBoxModel<>(new String[] {
+                "Tren 1",
+                "Tren 2",
+                "Tren 3",
+                "Tren 4"
+            }));
+            frame38ContentPane.add(comboBox58, "cell 0 6 2 1");
+
+            //---- label101 ----
+            label101.setText("Tren");
+            frame38ContentPane.add(label101, "cell 2 6");
+
+            //---- button131 ----
+            button131.setText("Volver");
+            button131.addActionListener(e -> Volver38(e));
+            frame38ContentPane.add(button131, "cell 0 8");
+
+            //---- button132 ----
+            button132.setText("Confirmar");
+            button132.addActionListener(e -> ConfirmarObjetoLinea33(e));
+            frame38ContentPane.add(button132, "cell 0 7");
+            frame38.pack();
+            frame38.setLocationRelativeTo(frame38.getOwner());
+        }
+
+        //======== frame39 ========
+        {
+            var frame39ContentPane = frame39.getContentPane();
+            frame39ContentPane.setLayout(new MigLayout(
+                "hidemode 3",
+                // columns
+                "[fill]" +
+                "[fill]" +
+                "[fill]",
+                // rows
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]" +
+                "[]"));
+
+            //---- label102 ----
+            label102.setText("Busqueda por objeto : Linea 4");
+            frame39ContentPane.add(label102, "cell 0 0 2 1,align center center,grow 0 0");
+
+            //---- comboBox59 ----
+            comboBox59.setModel(new DefaultComboBoxModel<>(new String[] {
+                "San Ramon",
+                "Santa Rosa",
+                "La Granja",
+                "Santa Julia",
+                "Vicu\u00f1a Mackenna",
+                "Walker Martinez",
+                "Rojas Magallanes",
+                "Trinidad",
+                "Portales",
+                "Mall Plaza Tobalaba",
+                "El pe\u00f1on",
+                "Plaza Viva",
+                "Las Vizcachas",
+                "La Laja",
+                "Ejercito Libertador",
+                "Valle Central",
+                "Hospital Karol Wojtyla",
+                "Nos",
+                "Cinco Pinos",
+                "San Bernardo",
+                "Lo Blanco",
+                "Monse\u00f1or Larrain",
+                "El Bosque",
+                "San Ramon(Termino)"
+            }));
+            frame39ContentPane.add(comboBox59, "cell 0 1 2 1");
+
+            //---- label103 ----
+            label103.setText("Partida");
+            frame39ContentPane.add(label103, "cell 2 1");
+
+            //---- comboBox60 ----
+            comboBox60.setModel(new DefaultComboBoxModel<>(new String[] {
+                "San Ramon",
+                "Santa Rosa",
+                "La Granja",
+                "Santa Julia",
+                "Vicu\u00f1a Mackenna",
+                "Walker Martinez",
+                "Rojas Magallanes",
+                "Trinidad",
+                "Portales",
+                "Mall Plaza Tobalaba",
+                "El pe\u00f1on",
+                "Plaza Viva",
+                "Las Vizcachas",
+                "La Laja",
+                "Ejercito Libertador",
+                "Valle Central",
+                "Hospital Karol Wojtyla",
+                "Nos",
+                "Cinco Pinos",
+                "San Bernardo",
+                "Lo Blanco",
+                "Monse\u00f1or Larrain",
+                "El Bosque",
+                "San Ramon(Termino)"
+            }));
+            frame39ContentPane.add(comboBox60, "cell 0 2 2 1");
+
+            //---- label104 ----
+            label104.setText("Llegada");
+            frame39ContentPane.add(label104, "cell 2 2");
+
+            //---- comboBox61 ----
+            comboBox61.setModel(new DefaultComboBoxModel<>(new String[] {
+                "Isaac Newton",
+                "Nikola Tesla",
+                "Arquimedes",
+                "Albert Einstein"
+            }));
+            frame39ContentPane.add(comboBox61, "cell 0 3 2 1");
+
+            //---- label105 ----
+            label105.setText("Driver");
+            frame39ContentPane.add(label105, "cell 2 3");
+            frame39ContentPane.add(textField12, "cell 0 4 2 1");
+
+            //---- label106 ----
+            label106.setText("Hora de inicio de trabajo");
+            frame39ContentPane.add(label106, "cell 2 4");
+
+            //---- label107 ----
+            label107.setText("(En formato HH:mm) Ejemplo: 10:45");
+            frame39ContentPane.add(label107, "cell 2 5");
+
+            //---- comboBox62 ----
+            comboBox62.setModel(new DefaultComboBoxModel<>(new String[] {
+                "Tren 1",
+                "Tren 2",
+                "Tren 3",
+                "Tren 4"
+            }));
+            frame39ContentPane.add(comboBox62, "cell 0 6 2 1");
+
+            //---- label108 ----
+            label108.setText("Tren");
+            frame39ContentPane.add(label108, "cell 2 6");
+
+            //---- button133 ----
+            button133.setText("Volver");
+            button133.addActionListener(e -> Volver39(e));
+            frame39ContentPane.add(button133, "cell 0 8");
+
+            //---- button134 ----
+            button134.setText("Confirmar");
+            button134.addActionListener(e -> ConfirmarObjeto4(e));
+            frame39ContentPane.add(button134, "cell 0 7");
+            frame39.pack();
+            frame39.setLocationRelativeTo(frame39.getOwner());
+        }
         // JFormDesigner - End of component initialization  //GEN-END:initComponents  @formatter:on
     }
 
@@ -3351,9 +5463,11 @@ public class mainMenu extends JFrame {
     private JButton button26;
     private JButton button27;
     private JFrame frame6;
-    private JButton button35;
-    private JButton button36;
+    private JLabel label34;
+    private JButton button115;
+    private JButton button116;
     private JButton button37;
+    private JButton button118;
     private JFrame frame7;
     private JLabel label4;
     private JButton button38;
@@ -3492,5 +5606,173 @@ public class mainMenu extends JFrame {
     private JComboBox<String> comboBox25;
     private JButton button94;
     private JButton button95;
+    private JFrame frame28;
+    private JLabel label35;
+    private JButton button97;
+    private JButton button105;
+    private JComboBox<String> comboBox31;
+    private JButton button135;
+    private JFrame frame29;
+    private JLabel label36;
+    private JComboBox<String> comboBox26;
+    private JLabel label38;
+    private JComboBox<String> comboBox27;
+    private JLabel label39;
+    private JComboBox<String> comboBox30;
+    private JLabel label40;
+    private JTextField textField1;
+    private JLabel label41;
+    private JLabel label42;
+    private JComboBox<String> comboBox32;
+    private JLabel label43;
+    private JButton button106;
+    private JButton button107;
+    private JFrame frame31;
+    private JLabel label44;
+    private JComboBox<String> comboBox33;
+    private JLabel label45;
+    private JComboBox<String> comboBox34;
+    private JLabel label46;
+    private JComboBox<String> comboBox35;
+    private JLabel label47;
+    private JTextField textField2;
+    private JLabel label48;
+    private JLabel label49;
+    private JComboBox<String> comboBox36;
+    private JLabel label50;
+    private JButton button108;
+    private JButton button109;
+    private JFrame frame32;
+    private JLabel label51;
+    private JComboBox<String> comboBox37;
+    private JLabel label52;
+    private JComboBox<String> comboBox38;
+    private JLabel label53;
+    private JComboBox<String> comboBox39;
+    private JLabel label54;
+    private JTextField textField3;
+    private JLabel label55;
+    private JLabel label56;
+    private JComboBox<String> comboBox40;
+    private JLabel label57;
+    private JButton button110;
+    private JButton button111;
+    private JFrame frame33;
+    private JLabel label58;
+    private JComboBox<String> comboBox41;
+    private JLabel label59;
+    private JComboBox<String> comboBox42;
+    private JLabel label60;
+    private JComboBox<String> comboBox43;
+    private JLabel label61;
+    private JTextField textField4;
+    private JLabel label62;
+    private JLabel label63;
+    private JComboBox<String> comboBox44;
+    private JLabel label64;
+    private JButton button112;
+    private JButton button113;
+    private JFrame frame26;
+    private JLabel label37;
+    private JButton button119;
+    private JButton button120;
+    private JButton button121;
+    private JButton button122;
+    private JFrame frame27;
+    private JComboBox<String> comboBox28;
+    private JLabel label65;
+    private JLabel label68;
+    private JTextField textField5;
+    private JLabel label66;
+    private JLabel label67;
+    private JButton button123;
+    private JButton button124;
+    private JFrame frame30;
+    private JComboBox<String> comboBox29;
+    private JLabel label69;
+    private JLabel label70;
+    private JTextField textField6;
+    private JLabel label71;
+    private JLabel label72;
+    private JButton button125;
+    private JButton button126;
+    private JFrame frame34;
+    private JComboBox<String> comboBox45;
+    private JLabel label73;
+    private JLabel label74;
+    private JTextField textField7;
+    private JLabel label75;
+    private JLabel label76;
+    private JButton button35;
+    private JButton button114;
+    private JFrame frame35;
+    private JComboBox<String> comboBox46;
+    private JLabel label77;
+    private JLabel label78;
+    private JTextField textField8;
+    private JLabel label79;
+    private JLabel label80;
+    private JButton button36;
+    private JButton button136;
+    private JFrame frame36;
+    private JLabel label81;
+    private JComboBox<String> comboBox47;
+    private JLabel label82;
+    private JComboBox<String> comboBox48;
+    private JLabel label83;
+    private JComboBox<String> comboBox49;
+    private JLabel label84;
+    private JTextField textField9;
+    private JLabel label85;
+    private JLabel label86;
+    private JComboBox<String> comboBox50;
+    private JLabel label87;
+    private JButton button127;
+    private JButton button128;
+    private JFrame frame37;
+    private JLabel label88;
+    private JComboBox<String> comboBox51;
+    private JLabel label89;
+    private JComboBox<String> comboBox52;
+    private JLabel label90;
+    private JComboBox<String> comboBox53;
+    private JLabel label91;
+    private JTextField textField10;
+    private JLabel label92;
+    private JLabel label93;
+    private JComboBox<String> comboBox54;
+    private JLabel label94;
+    private JButton button129;
+    private JButton button130;
+    private JFrame frame38;
+    private JLabel label95;
+    private JComboBox<String> comboBox55;
+    private JLabel label96;
+    private JComboBox<String> comboBox56;
+    private JLabel label97;
+    private JComboBox<String> comboBox57;
+    private JLabel label98;
+    private JTextField textField11;
+    private JLabel label99;
+    private JLabel label100;
+    private JComboBox<String> comboBox58;
+    private JLabel label101;
+    private JButton button131;
+    private JButton button132;
+    private JFrame frame39;
+    private JLabel label102;
+    private JComboBox<String> comboBox59;
+    private JLabel label103;
+    private JComboBox<String> comboBox60;
+    private JLabel label104;
+    private JComboBox<String> comboBox61;
+    private JLabel label105;
+    private JTextField textField12;
+    private JLabel label106;
+    private JLabel label107;
+    private JComboBox<String> comboBox62;
+    private JLabel label108;
+    private JButton button133;
+    private JButton button134;
     // JFormDesigner - End of variables declaration  //GEN-END:variables  @formatter:on
 }
