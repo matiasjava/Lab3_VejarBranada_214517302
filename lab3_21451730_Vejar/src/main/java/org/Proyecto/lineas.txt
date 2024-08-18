@@ -5,7 +5,7 @@
 4,Ecuador,r,15
 5,San Alberto Hurtado,r,15
 6,Universidad de Santiago de Chile,c,30
-7,Estacion central,t,15
+7,Estacion Central,t,15
 8,ULA,m,20
 9,Republica,r,15
 10,Los heroes,r,20

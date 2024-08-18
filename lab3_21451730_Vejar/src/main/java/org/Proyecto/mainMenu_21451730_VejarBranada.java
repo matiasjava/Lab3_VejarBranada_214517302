@@ -15,23 +15,22 @@ import java.util.Date;
 import java.util.List;
 import javax.swing.*;
 
-import com.sun.source.tree.NewArrayTree;
 import net.miginfocom.swing.*;
 import org.Proyecto.TDAs.Clases.*;
-import org.Proyecto.TDAs.Interfaces.LineInterface;
+import org.Proyecto.TDAs.Interfaces.LineInterface_21451730_VejarBranada;
 
 
 
 
-import static org.Proyecto.Main.*;
+import static org.Proyecto.Main_21451730_VejarBranada.*;
 
 /**
  * @author WASUPRE
  */
 
 
-public class mainMenu extends JFrame {
-    public mainMenu() {
+public class mainMenu_21451730_VejarBranada extends JFrame {
+    public mainMenu_21451730_VejarBranada() {
         initComponents();
 
     }
@@ -48,39 +47,39 @@ public class mainMenu extends JFrame {
     }
 
     private void CargarTxt(ActionEvent e) {
-        List<LineInterface> lineas;
+        List<LineInterface_21451730_VejarBranada> lineas;
         lineas = leerStations();
         setLineastxt(lineas);
         JOptionPane.showMessageDialog(null, "Cargado correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
         button5.setEnabled(false);
     }
 
-    public List<LineInterface> leerStations() {
-        List<LineInterface> listLineas = new ArrayList<>();
+    public List<LineInterface_21451730_VejarBranada> leerStations() {
+        List<LineInterface_21451730_VejarBranada> listLineas = new ArrayList<>();
 
-        List<Station> stations = new ArrayList<>();
+        List<Station_21451730_VejarBranada> station21451730VejarBranadas = new ArrayList<>();
 
-        List<Station> stations2 = new ArrayList<>();
+        List<Station_21451730_VejarBranada> stations2 = new ArrayList<>();
 
-        List<Station> stations3 = new ArrayList<>();
+        List<Station_21451730_VejarBranada> stations3 = new ArrayList<>();
 
-        List<Station> stations4 = new ArrayList<>();
+        List<Station_21451730_VejarBranada> stations4 = new ArrayList<>();
 
-        List<Station> stationsSueltas1 = new ArrayList<>();
+        List<Station_21451730_VejarBranada> stationsSueltas1 = new ArrayList<>();
 
-        List<Section> sections = new ArrayList<>();
+        List<Section_21451730_VejarBranada> section21451730VejarBranadas = new ArrayList<>();
 
-        List<Section> sections2 = new ArrayList<>();
+        List<Section_21451730_VejarBranada> sections2 = new ArrayList<>();
 
-        List<Section> sections3 = new ArrayList<>();
+        List<Section_21451730_VejarBranada> sections3 = new ArrayList<>();
 
-        List<Section> sections4 = new ArrayList<>();
+        List<Section_21451730_VejarBranada> sections4 = new ArrayList<>();
 
-        List<LineRegular> linea4 = new ArrayList<>();
+        List<LineRegular_21451730_VejarBranada> linea4 = new ArrayList<>();
         int i = 0;
         int j = 1;
 
-        try {
+        try { // CambiarAqui  Se debe poner la ruta entera de donde esta ubicado el archivo lineas.txt
             File file = new File("C:\\Users\\WASUPRE\\Desktop\\Lab 3 paradigmas\\Lab3_VejarBranada_214517302\\lab3_21451730_Vejar\\src\\main\\java\\org\\Proyecto\\lineas.txt");
             FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
@@ -94,18 +93,18 @@ public class mainMenu extends JFrame {
                 String name = datos[1].trim();
                 String type = datos[2].trim();
                 int stopTime = Integer.parseInt(datos[3].trim());
-                Station station = new Station(id, name, type, stopTime);
-                stations.add(station);
+                Station_21451730_VejarBranada station21451730VejarBranada = new Station_21451730_VejarBranada(id, name, type, stopTime);
+                station21451730VejarBranadas.add(station21451730VejarBranada);
                 linea = br.readLine();
             }
-            setListaStations1(stations);
+            setListaStations1(station21451730VejarBranadas);
             linea = br.readLine();
             while (!linea.startsWith("Lineas")) {
                 String[] datos = linea.split(",");
                 int distance = Integer.parseInt(datos[0].trim());
                 int cost = Integer.parseInt(datos[1].trim());
-                Section section = new Section(stations.get(i), stations.get(j), distance, cost);
-                sections.add(section);
+                Section_21451730_VejarBranada section21451730VejarBranada = new Section_21451730_VejarBranada(station21451730VejarBranadas.get(i), station21451730VejarBranadas.get(j), distance, cost);
+                section21451730VejarBranadas.add(section21451730VejarBranada);
                 i++;
                 j++;
                 linea = br.readLine();
@@ -116,7 +115,7 @@ public class mainMenu extends JFrame {
                 int id = Integer.parseInt(datos[0].trim());
                 String name = datos[1].trim();
                 String railType = datos[2].trim();
-                LineRegular lineaRegular = new LineRegular(id, name, railType, sections);
+                LineRegular_21451730_VejarBranada lineaRegular = new LineRegular_21451730_VejarBranada(id, name, railType, section21451730VejarBranadas);
                 listLineas.add(lineaRegular);
                 linea = br.readLine();
             }
@@ -134,8 +133,8 @@ public class mainMenu extends JFrame {
                 String name2 = datos2[1].trim();
                 String type2 = datos2[2].trim();
                 int stopTime2 = Integer.parseInt(datos2[3].trim());
-                Station station2 = new Station(id2, name2, type2, stopTime2);
-                stations2.add(station2);
+                Station_21451730_VejarBranada station21451730VejarBranada2 = new Station_21451730_VejarBranada(id2, name2, type2, stopTime2);
+                stations2.add(station21451730VejarBranada2);
                 linea = br.readLine();
 
             }
@@ -145,8 +144,8 @@ public class mainMenu extends JFrame {
                 String[] datos2 = linea.split(",");
                 int distance2 = Integer.parseInt(datos2[0].trim());
                 int cost2 = Integer.parseInt(datos2[1].trim());
-                Section section2 = new Section(stations2.get(i), stations2.get(j), distance2, cost2);
-                sections2.add(section2);
+                Section_21451730_VejarBranada section21451730VejarBranada2 = new Section_21451730_VejarBranada(stations2.get(i), stations2.get(j), distance2, cost2);
+                sections2.add(section21451730VejarBranada2);
                 i++;
                 j++;
                 linea = br.readLine();
@@ -158,7 +157,7 @@ public class mainMenu extends JFrame {
                 int id2 = Integer.parseInt(datos2[0].trim());
                 String name2 = datos2[1].trim();
                 String railType2 = datos2[2].trim();
-                LineRegular lineaRegular2 = new LineRegular(id2, name2, railType2, sections2);
+                LineRegular_21451730_VejarBranada lineaRegular2 = new LineRegular_21451730_VejarBranada(id2, name2, railType2, sections2);
                 listLineas.add(lineaRegular2);
                 linea = br.readLine();
             }
@@ -176,8 +175,8 @@ public class mainMenu extends JFrame {
                 String name3 = datos3[1].trim();
                 String type3 = datos3[2].trim();
                 int stopTime3 = Integer.parseInt(datos3[3].trim());
-                Station station3 = new Station(id3, name3, type3, stopTime3);
-                stations3.add(station3);
+                Station_21451730_VejarBranada station21451730VejarBranada3 = new Station_21451730_VejarBranada(id3, name3, type3, stopTime3);
+                stations3.add(station21451730VejarBranada3);
                 linea = br.readLine();
 
             }
@@ -188,8 +187,8 @@ public class mainMenu extends JFrame {
                 String[] datos3 = linea.split(",");
                 int distance3 = Integer.parseInt(datos3[0].trim());
                 int cost3 = Integer.parseInt(datos3[1].trim());
-                Section section3 = new Section(stations3.get(i), stations3.get(j), distance3, cost3);
-                sections3.add(section3);
+                Section_21451730_VejarBranada section21451730VejarBranada3 = new Section_21451730_VejarBranada(stations3.get(i), stations3.get(j), distance3, cost3);
+                sections3.add(section21451730VejarBranada3);
                 i++;
                 j++;
                 linea = br.readLine();
@@ -201,7 +200,7 @@ public class mainMenu extends JFrame {
                 int id3 = Integer.parseInt(datos3[0].trim());
                 String name3 = datos3[1].trim();
                 String railType3 = datos3[2].trim();
-                LineRegular lineaRegular3 = new LineRegular(id3, name3, railType3, sections3);
+                LineRegular_21451730_VejarBranada lineaRegular3 = new LineRegular_21451730_VejarBranada(id3, name3, railType3, sections3);
                 listLineas.add(lineaRegular3);
                 linea = br.readLine();
             }
@@ -219,8 +218,8 @@ public class mainMenu extends JFrame {
                 String name4 = datos4[1].trim();
                 String type4 = datos4[2].trim();
                 int stopTime4 = Integer.parseInt(datos4[3].trim());
-                Station station4 = new Station(id4, name4, type4, stopTime4);
-                stations4.add(station4);
+                Station_21451730_VejarBranada station21451730VejarBranada4 = new Station_21451730_VejarBranada(id4, name4, type4, stopTime4);
+                stations4.add(station21451730VejarBranada4);
                 linea = br.readLine();
 
             }
@@ -231,8 +230,8 @@ public class mainMenu extends JFrame {
                 String[] datos4 = linea.split(",");
                 int distance4 = Integer.parseInt(datos4[0].trim());
                 int cost4 = Integer.parseInt(datos4[1].trim());
-                Section section4 = new Section(stations4.get(i), stations4.get(j), distance4, cost4);
-                sections4.add(section4);
+                Section_21451730_VejarBranada section21451730VejarBranada4 = new Section_21451730_VejarBranada(stations4.get(i), stations4.get(j), distance4, cost4);
+                sections4.add(section21451730VejarBranada4);
                 i++;
                 j++;
                 linea = br.readLine();
@@ -244,7 +243,7 @@ public class mainMenu extends JFrame {
                 int id4 = Integer.parseInt(datos4[0].trim());
                 String name4 = datos4[1].trim();
                 String railType4 = datos4[2].trim();
-                LineCircular lineaCircular = new LineCircular(id4, name4, railType4, sections4);
+                LineCircular_21451730_VejarBranada lineaCircular = new LineCircular_21451730_VejarBranada(id4, name4, railType4, sections4);
                 setLineaCircular4(lineaCircular);
                 linea = br.readLine();
             }
@@ -259,8 +258,8 @@ public class mainMenu extends JFrame {
                 String name5 = datos5[1].trim();
                 String type5 = datos5[2].trim();
                 int stopTime5 = Integer.parseInt(datos5[3].trim());
-                Station station5 = new Station(id5, name5, type5, stopTime5);
-                stationsSueltas1.add(station5);
+                Station_21451730_VejarBranada station21451730VejarBranada5 = new Station_21451730_VejarBranada(id5, name5, type5, stopTime5);
+                stationsSueltas1.add(station21451730VejarBranada5);
                 linea = br.readLine();
             }
             setStationsSueltas(stationsSueltas1);
@@ -283,8 +282,13 @@ public class mainMenu extends JFrame {
     }
 
     private void InteractuarMetro(ActionEvent e) {
-        frame3.setVisible(true);
-        frame.setVisible(false);
+        if(subway21451730VejarBranada1 == null){
+            JOptionPane.showMessageDialog(null, "Primero debes crear el metro", "Información", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else {
+            frame3.setVisible(true);
+            frame.setVisible(false);
+        }
     }
 
     private void OperacionTren(ActionEvent e) {
@@ -681,25 +685,24 @@ public class mainMenu extends JFrame {
     }
 
 
-    public List<Train> leerTrenes() {
+    public List<Train_21451730_VejarBranada> leerTrenes() {
 
-        List<Train> trains = new ArrayList<>();
+        List<Train_21451730_VejarBranada> train21451730VejarBranadas = new ArrayList<>();
 
+        List<PassengerCar_21451730_VejarBranada> lista1 = new ArrayList<>();
 
-        List<PassengerCar> lista1 = new ArrayList<>();
+        List<PassengerCar_21451730_VejarBranada> lista2 = new ArrayList<>();
 
-        List<PassengerCar> lista2 = new ArrayList<>();
+        List<PassengerCar_21451730_VejarBranada> lista3 = new ArrayList<>();
 
-        List<PassengerCar> lista3 = new ArrayList<>();
+        List<PassengerCar_21451730_VejarBranada> lista4 = new ArrayList<>();
 
-        List<PassengerCar> lista4 = new ArrayList<>();
-
-        List<PassengerCar> pcarsSueltos1 = new ArrayList<>();
+        List<PassengerCar_21451730_VejarBranada> pcarsSueltos1 = new ArrayList<>();
 
         int i =0;
         int j =1;
 
-        try {
+        try { // CambiarAqui  Se debe poner la ruta entera de donde esta ubicado el archivo trenes.txt
             File file = new File("C:\\Users\\WASUPRE\\Desktop\\Lab 3 paradigmas\\Lab3_VejarBranada_214517302\\lab3_21451730_Vejar\\src\\main\\java\\org\\Proyecto\\trenes.txt");
             FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
@@ -714,7 +717,7 @@ public class mainMenu extends JFrame {
                 String model = datos[2].trim();
                 String trainMaker = datos[3].trim();
                 String carType = datos[4].trim();
-                PassengerCar passengerCar = new PassengerCar(id, passengerCapacity, model, trainMaker, carType);
+                PassengerCar_21451730_VejarBranada passengerCar = new PassengerCar_21451730_VejarBranada(id, passengerCapacity, model, trainMaker, carType);
                 lista1.add(passengerCar);
                 linea = br.readLine();
             }
@@ -726,8 +729,8 @@ public class mainMenu extends JFrame {
                 String trainMaker = datos[1].trim();
                 int speed = Integer.parseInt(datos[2].trim());
                 int stationStaytime = Integer.parseInt((datos[3]));
-                Train train1 = new Train(id, trainMaker, speed, stationStaytime, lista1);
-                trains.add(train1);
+                Train_21451730_VejarBranada train21451730VejarBranada1 = new Train_21451730_VejarBranada(id, trainMaker, speed, stationStaytime, lista1);
+                train21451730VejarBranadas.add(train21451730VejarBranada1);
                 linea = br.readLine();
             }
 
@@ -743,7 +746,7 @@ public class mainMenu extends JFrame {
                 String model = datos[2].trim();
                 String trainMaker = datos[3].trim();
                 String carType = datos[4].trim();
-                PassengerCar passengerCar = new PassengerCar(id, passengerCapacity, model, trainMaker, carType);
+                PassengerCar_21451730_VejarBranada passengerCar = new PassengerCar_21451730_VejarBranada(id, passengerCapacity, model, trainMaker, carType);
                 lista2.add(passengerCar);
                 linea = br.readLine();
             }
@@ -755,8 +758,8 @@ public class mainMenu extends JFrame {
                 String trainMaker = datos[1].trim();
                 int speed = Integer.parseInt(datos[2].trim());
                 int stationStaytime = Integer.parseInt((datos[3]));
-                Train train2 = new Train(id, trainMaker, speed, stationStaytime, lista2);
-                trains.add(train2);
+                Train_21451730_VejarBranada train21451730VejarBranada2 = new Train_21451730_VejarBranada(id, trainMaker, speed, stationStaytime, lista2);
+                train21451730VejarBranadas.add(train21451730VejarBranada2);
                 linea = br.readLine();
             }
             //Tren 3
@@ -770,7 +773,7 @@ public class mainMenu extends JFrame {
                 String model = datos[2].trim();
                 String trainMaker = datos[3].trim();
                 String carType = datos[4].trim();
-                PassengerCar passengerCar = new PassengerCar(id, passengerCapacity, model, trainMaker, carType);
+                PassengerCar_21451730_VejarBranada passengerCar = new PassengerCar_21451730_VejarBranada(id, passengerCapacity, model, trainMaker, carType);
                 lista3.add(passengerCar);
                 linea = br.readLine();
             }
@@ -782,8 +785,8 @@ public class mainMenu extends JFrame {
                 String trainMaker = datos[1].trim();
                 int speed = Integer.parseInt(datos[2].trim());
                 int stationStaytime = Integer.parseInt((datos[3]));
-                Train train3 = new Train(id, trainMaker, speed, stationStaytime, lista3);
-                trains.add(train3);
+                Train_21451730_VejarBranada train21451730VejarBranada3 = new Train_21451730_VejarBranada(id, trainMaker, speed, stationStaytime, lista3);
+                train21451730VejarBranadas.add(train21451730VejarBranada3);
                 linea = br.readLine();
             }
             //Tren 4
@@ -797,7 +800,7 @@ public class mainMenu extends JFrame {
                 String model = datos[2].trim();
                 String trainMaker = datos[3].trim();
                 String carType = datos[4].trim();
-                PassengerCar passengerCar = new PassengerCar(id, passengerCapacity, model, trainMaker, carType);
+                PassengerCar_21451730_VejarBranada passengerCar = new PassengerCar_21451730_VejarBranada(id, passengerCapacity, model, trainMaker, carType);
                 lista4.add(passengerCar);
                 linea = br.readLine();
             }
@@ -809,8 +812,8 @@ public class mainMenu extends JFrame {
                 String trainMaker = datos[1].trim();
                 int speed = Integer.parseInt(datos[2].trim());
                 int stationStaytime = Integer.parseInt((datos[3]));
-                Train train4 = new Train(id, trainMaker, speed, stationStaytime, lista4);
-                trains.add(train4);
+                Train_21451730_VejarBranada train21451730VejarBranada4 = new Train_21451730_VejarBranada(id, trainMaker, speed, stationStaytime, lista4);
+                train21451730VejarBranadas.add(train21451730VejarBranada4);
                 linea = br.readLine();
             }
 
@@ -824,7 +827,7 @@ public class mainMenu extends JFrame {
                 String model = datos[2].trim();
                 String trainMaker = datos[3].trim();
                 String carType = datos[4].trim();
-                PassengerCar passengerCar = new PassengerCar(id, passengerCapacity, model, trainMaker, carType);
+                PassengerCar_21451730_VejarBranada passengerCar = new PassengerCar_21451730_VejarBranada(id, passengerCapacity, model, trainMaker, carType);
                 pcarsSueltos1.add(passengerCar);
                 linea = br.readLine();
             }
@@ -834,11 +837,11 @@ public class mainMenu extends JFrame {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return trains;
+        return train21451730VejarBranadas;
     }
 
     private void TrenesCargar(ActionEvent e) {
-        List<Train> trenesLista;
+        List<Train_21451730_VejarBranada> trenesLista;
         trenesLista = leerTrenes();
         setTrenestxt(trenesLista);
         JOptionPane.showMessageDialog(null, "Cargado correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
@@ -859,20 +862,19 @@ public class mainMenu extends JFrame {
         else{
             if(stationsSueltas.get(Estacion).getType().equals("t")){
                 lineastxt.get(Linea).getSections().get(lineastxt.get(Linea).getSections().size()-1).getPoint2().setType("r");
-                Section section2 = new Section(lineastxt.get(Linea).getSections().get(lineastxt.get(Linea).getSections().size()-1).getPoint2(),stationsSueltas.get(Estacion), 60, 60);
-                lineastxt.get(Linea).line_Add_Section(section2);
+                Section_21451730_VejarBranada section21451730VejarBranada2 = new Section_21451730_VejarBranada(lineastxt.get(Linea).getSections().get(lineastxt.get(Linea).getSections().size()-1).getPoint2(),stationsSueltas.get(Estacion), 60, 60);
+                lineastxt.get(Linea).line_Add_Section(section21451730VejarBranada2);
                 JOptionPane.showMessageDialog(null, "Agregada Correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
-                System.out.println(lineastxt.get(Linea).getSections().get(lineastxt.get(Linea).getSections().size()-1).getPoint2().getName());
             }
             else{
                 lineastxt.get(Linea).getSections().get(lineastxt.get(Linea).getSections().size()-1).getPoint2().setType("r");
-                Station station1 = new Station();
-                station1 = stationsSueltas.get(Estacion);
-                Section section3 = new Section(lineastxt.get(Linea).getSections().get(lineastxt.get(Linea).getSections().size()-1).getPoint2(),station1, 60, 60);
-                lineastxt.get(Linea).line_Add_Section(section3);
+                Station_21451730_VejarBranada station21451730VejarBranada1 = new Station_21451730_VejarBranada();
+                station21451730VejarBranada1 = stationsSueltas.get(Estacion);
+                Section_21451730_VejarBranada section21451730VejarBranada3 = new Section_21451730_VejarBranada(lineastxt.get(Linea).getSections().get(lineastxt.get(Linea).getSections().size()-1).getPoint2(), station21451730VejarBranada1, 60, 60);
+                lineastxt.get(Linea).line_Add_Section(section21451730VejarBranada3);
                 lineastxt.get(Linea).getSections().get(lineastxt.get(Linea).getSections().size()-1).getPoint2().setType("t");
                 JOptionPane.showMessageDialog(null, "Agregada Correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
-                System.out.println(lineastxt.get(Linea).getSections().get(lineastxt.get(Linea).getSections().size()-1).getPoint2().getName());
+
             }
         }
     }
@@ -895,8 +897,8 @@ public class mainMenu extends JFrame {
     private void Confirmar32(ActionEvent e) {
         int Estacion = comboBox1.getSelectedIndex();
         int Linea = comboBox18.getSelectedIndex();
-        Section section2 = new Section(LineaCircular4.getSections().get(LineaCircular4.getSections().size()-1).getPoint2(),stationsSueltas.get(Estacion), 60, 60);
-        LineaCircular4.line_Add_Section(section2);
+        Section_21451730_VejarBranada section21451730VejarBranada2 = new Section_21451730_VejarBranada(LineaCircular4.getSections().get(LineaCircular4.getSections().size()-1).getPoint2(),stationsSueltas.get(Estacion), 60, 60);
+        LineaCircular4.line_Add_Section(section21451730VejarBranada2);
         JOptionPane.showMessageDialog(null, "Agregada Correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
         frame22.setVisible(false);
     }
@@ -981,7 +983,7 @@ public class mainMenu extends JFrame {
         int trenSelect = comboBox20.getSelectedIndex();
         int posicion = comboBox21.getSelectedIndex();
         if(posicion > trenestxt.get(trenSelect).getCarlist().size()){
-            JOptionPane.showMessageDialog(null, "Estas removiendo una posicion inexistente", "Información", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Estas ingresando en  una posicion inexistente", "Información", JOptionPane.INFORMATION_MESSAGE);
         }
         else {
             if(trenestxt.get(trenSelect).getCarlist().contains(pcarsSueltos.get(pcarSelect))){
@@ -1025,7 +1027,7 @@ public class mainMenu extends JFrame {
             JOptionPane.showMessageDialog(null, "Tienes que cargar los trenes primero", "Información", JOptionPane.INFORMATION_MESSAGE);
         }
         else{
-            List<Driver> driversFinal;
+            List<Driver_21451730_VejarBranada> driversFinal;
             driversFinal = CargarTxt();
             setDriverstxt(driversFinal);
             JOptionPane.showMessageDialog(null, "Cargado correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
@@ -1033,12 +1035,12 @@ public class mainMenu extends JFrame {
         }
     }
 
-    public List<Driver> CargarTxt(){
+    public List<Driver_21451730_VejarBranada> CargarTxt(){
 
-        List<Driver> driverList = new ArrayList<>();
-        List<Driver> driverListSueltos = new ArrayList<>();
+        List<Driver_21451730_VejarBranada> driverList = new ArrayList<>();
+        List<Driver_21451730_VejarBranada> driverListSueltos = new ArrayList<>();
 
-        try {
+        try { // CambiarAqui  Se debe poner la ruta entera de donde esta ubicado el archivo conductores.txt
             File file = new File("C:\\Users\\WASUPRE\\Desktop\\Lab 3 paradigmas\\Lab3_VejarBranada_214517302\\lab3_21451730_Vejar\\src\\main\\java\\org\\Proyecto\\conductores.txt");
             FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
@@ -1051,7 +1053,7 @@ public class mainMenu extends JFrame {
                 int id = Integer.parseInt(datos[0].trim());
                 String name = datos[1].trim();
                 String trainMaker = datos[2].trim();
-                Driver conductor = new Driver(id, name, trainMaker);
+                Driver_21451730_VejarBranada conductor = new Driver_21451730_VejarBranada(id, name, trainMaker);
                 driverList.add(conductor);
                 linea = br.readLine();
             }
@@ -1064,7 +1066,7 @@ public class mainMenu extends JFrame {
                 int id = Integer.parseInt(datos[0].trim());
                 String name = datos[1].trim();
                 String trainMaker = datos[2].trim();
-                Driver conductor = new Driver(id, name, trainMaker);
+                Driver_21451730_VejarBranada conductor = new Driver_21451730_VejarBranada(id, name, trainMaker);
                 driverListSueltos.add(conductor);
                 linea = br.readLine();
             }
@@ -1088,31 +1090,31 @@ public class mainMenu extends JFrame {
             JOptionPane.showMessageDialog(null, "Falta cargar los conductores asignados a una linea", "Información", JOptionPane.INFORMATION_MESSAGE);
         }
         else{
-            subway1 = new Subway(0,"Metro de santiago modificado y reducido");
-            subway1.addLine(lineastxt);
-            List<LineInterface> listCircular = new ArrayList<>();
+            subway21451730VejarBranada1 = new Subway_21451730_VejarBranada(0,"Metro de santiago modificado y reducido");
+            subway21451730VejarBranada1.addLine(lineastxt);
+            List<LineInterface_21451730_VejarBranada> listCircular = new ArrayList<>();
             listCircular.add(LineaCircular4);
-            subway1.addLine(listCircular);
-            subway1.adddriver(driverstxt);
-            subway1.addTrain(trenestxt);
+            subway21451730VejarBranada1.addLine(listCircular);
+            subway21451730VejarBranada1.adddriver(driverstxt);
+            subway21451730VejarBranada1.addTrain(trenestxt);
             button54.setEnabled(false);
             JOptionPane.showMessageDialog(null, "Creado correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
     private void SubwayToStringmenu(ActionEvent e) {
-        if(subway1 == null){
+        if(subway21451730VejarBranada1 == null){
             JOptionPane.showMessageDialog(null, "Tienes que crear el subway primero", "Información", JOptionPane.INFORMATION_MESSAGE);
         }
         else{
-            String datos = subway1.toString();
+            String datos = subway21451730VejarBranada1.toString();
             JOptionPane.showMessageDialog(null, "Datos: " + datos, "Información", JOptionPane.INFORMATION_MESSAGE);
 
         }
     }
 
     private void AssignTrainMenu(ActionEvent e) {
-        if(subway1 == null){
+        if(subway21451730VejarBranada1 == null){
             JOptionPane.showMessageDialog(null, "Tienes que crear el subway primero", "Información", JOptionPane.INFORMATION_MESSAGE);
         }
         else{
@@ -1125,28 +1127,28 @@ public class mainMenu extends JFrame {
         int selectTrain = comboBox24.getSelectedIndex();
         int selectLine = comboBox25.getSelectedIndex();
 
-        if(subway1.getLineListSubway().get(selectLine).getTrains().contains(trenestxt.get(selectTrain))) {
+        if(subway21451730VejarBranada1.getLineListSubway().get(selectLine).getTrains().contains(trenestxt.get(selectTrain))) {
             JOptionPane.showMessageDialog(null, "El tren esta repetido", "Información", JOptionPane.INFORMATION_MESSAGE);
         }
         else {
 
             if (selectLine == 3) {
-                subway1.assignTrainToLine(trenestxt.get(selectTrain), subway1.getLineListSubway().get(3));
+                subway21451730VejarBranada1.assignTrainToLine(trenestxt.get(selectTrain), subway21451730VejarBranada1.getLineListSubway().get(3));
                 JOptionPane.showMessageDialog(null, "Agregado Correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
                 count = count + 1;
             }
             if (selectLine == 1) {
-                subway1.assignTrainToLine(trenestxt.get(selectTrain), subway1.getLineListSubway().get(1));
+                subway21451730VejarBranada1.assignTrainToLine(trenestxt.get(selectTrain), subway21451730VejarBranada1.getLineListSubway().get(1));
                 JOptionPane.showMessageDialog(null, "Agregado Correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
                 count = count + 1;
             }
             if (selectLine == 2) {
-                subway1.assignTrainToLine(trenestxt.get(selectTrain), subway1.getLineListSubway().get(2));
+                subway21451730VejarBranada1.assignTrainToLine(trenestxt.get(selectTrain), subway21451730VejarBranada1.getLineListSubway().get(2));
                 JOptionPane.showMessageDialog(null, "Agregado Correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
                 count = count + 1;
             }
             if (selectLine == 0) {
-                subway1.assignTrainToLine(trenestxt.get(selectTrain), subway1.getLineListSubway().get(0));
+                subway21451730VejarBranada1.assignTrainToLine(trenestxt.get(selectTrain), subway21451730VejarBranada1.getLineListSubway().get(0));
                 JOptionPane.showMessageDialog(null, "Agregado Correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
                 count = count + 1;
             }
@@ -1167,7 +1169,7 @@ public class mainMenu extends JFrame {
     }
 
     private void BusquedaPorID(ActionEvent e) {
-        if(subway1.getLineListSubway().get(comboBox31.getSelectedIndex()).getTrains().size() == 0){
+        if(subway21451730VejarBranada1.getLineListSubway().get(comboBox31.getSelectedIndex()).getTrains().size() == 0){
             JOptionPane.showMessageDialog(null, "Linea sin trenes", "Información", JOptionPane.INFORMATION_MESSAGE);
         }
         else{
@@ -1191,7 +1193,7 @@ public class mainMenu extends JFrame {
     }
 
     private void BusquedaPorObjeto(ActionEvent e) {
-        if(subway1.getLineListSubway().get(comboBox31.getSelectedIndex()).getTrains().isEmpty()){
+        if(subway21451730VejarBranada1.getLineListSubway().get(comboBox31.getSelectedIndex()).getTrains().isEmpty()){
             JOptionPane.showMessageDialog(null, "Linea sin trenes", "Información", JOptionPane.INFORMATION_MESSAGE);
         }
         else{
@@ -1221,13 +1223,13 @@ public class mainMenu extends JFrame {
     }
 
     private void ConfirmarLinea1TrainLine(ActionEvent e) {
-        if (subway1.getTrainList().get(comboBox32.getSelectedIndex()).getDriverTrain() != null) {
+        if (subway21451730VejarBranada1.getTrainList().get(comboBox32.getSelectedIndex()).getDriverTrain() != null) {
             JOptionPane.showMessageDialog(null, "A este tren ya le fue asignado conductor", "Información", JOptionPane.INFORMATION_MESSAGE);
         } else {
             String hora = textField1.getText();
             try {
                 Date tiempoDePartidaDriver = formatoHora.parse(hora);
-                subway1.assignDriverToTrain(subway1.getTrainList().get(comboBox32.getSelectedIndex()),subway1.getDriverListSubway().get(comboBox30.getSelectedIndex()),tiempoDePartidaDriver, subway1.BuscarStationPorId(comboBox26.getSelectedIndex()),subway1.BuscarStationPorId(comboBox27.getSelectedIndex()));
+                subway21451730VejarBranada1.assignDriverToTrain(subway21451730VejarBranada1.getTrainList().get(comboBox32.getSelectedIndex()), subway21451730VejarBranada1.getDriverListSubway().get(comboBox30.getSelectedIndex()),tiempoDePartidaDriver, subway21451730VejarBranada1.BuscarStationPorId(comboBox26.getSelectedIndex()), subway21451730VejarBranada1.BuscarStationPorId(comboBox27.getSelectedIndex()));
                 JOptionPane.showMessageDialog(null, "Asignado correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
             } catch (ParseException r) {
                 r.printStackTrace();
@@ -1236,13 +1238,13 @@ public class mainMenu extends JFrame {
     }
 
     private void ConfirmarTrainLinea2(ActionEvent e) {
-        if (subway1.getTrainList().get(comboBox36.getSelectedIndex()).getDriverTrain() != null) {
+        if (subway21451730VejarBranada1.getTrainList().get(comboBox36.getSelectedIndex()).getDriverTrain() != null) {
             JOptionPane.showMessageDialog(null, "A este tren ya le fue asignado conductor", "Información", JOptionPane.INFORMATION_MESSAGE);
         } else {
             String hora = textField2.getText();
             try {
                 Date tiempoDePartidaDriver = formatoHora.parse(hora);
-                subway1.assignDriverToTrain(subway1.getTrainList().get(comboBox36.getSelectedIndex()),subway1.getDriverListSubway().get(comboBox35.getSelectedIndex()),tiempoDePartidaDriver,subway1.BuscarStationPorId(comboBox33.getSelectedIndex()),subway1.BuscarStationPorId(comboBox34.getSelectedIndex()));
+                subway21451730VejarBranada1.assignDriverToTrain(subway21451730VejarBranada1.getTrainList().get(comboBox36.getSelectedIndex()), subway21451730VejarBranada1.getDriverListSubway().get(comboBox35.getSelectedIndex()),tiempoDePartidaDriver, subway21451730VejarBranada1.BuscarStationPorId(comboBox33.getSelectedIndex()), subway21451730VejarBranada1.BuscarStationPorId(comboBox34.getSelectedIndex()));
                 JOptionPane.showMessageDialog(null, "Asignado correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
             } catch (ParseException r) {
                 r.printStackTrace();
@@ -1256,13 +1258,13 @@ public class mainMenu extends JFrame {
     }
 
     private void ConfirmarLinea3Train(ActionEvent e) {
-        if (subway1.getTrainList().get(comboBox40.getSelectedIndex()).getDriverTrain() != null) {
+        if (subway21451730VejarBranada1.getTrainList().get(comboBox40.getSelectedIndex()).getDriverTrain() != null) {
             JOptionPane.showMessageDialog(null, "A este tren ya le fue asignado conductor", "Información", JOptionPane.INFORMATION_MESSAGE);
         } else {
             String hora = textField3.getText();
             try {
                 Date tiempoDePartidaDriver = formatoHora.parse(hora);
-                subway1.assignDriverToTrain(subway1.getTrainList().get(comboBox40.getSelectedIndex()),subway1.getDriverListSubway().get(comboBox39.getSelectedIndex()),tiempoDePartidaDriver,subway1.BuscarStationPorId(comboBox37.getSelectedIndex()),subway1.BuscarStationPorId(comboBox38.getSelectedIndex()));
+                subway21451730VejarBranada1.assignDriverToTrain(subway21451730VejarBranada1.getTrainList().get(comboBox40.getSelectedIndex()), subway21451730VejarBranada1.getDriverListSubway().get(comboBox39.getSelectedIndex()),tiempoDePartidaDriver, subway21451730VejarBranada1.BuscarStationPorId(comboBox37.getSelectedIndex()), subway21451730VejarBranada1.BuscarStationPorId(comboBox38.getSelectedIndex()));
                 JOptionPane.showMessageDialog(null, "Asignado correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
             } catch (ParseException r) {
                 r.printStackTrace();
@@ -1276,13 +1278,13 @@ public class mainMenu extends JFrame {
     }
 
     private void ConfirmarLinea4Train(ActionEvent e) {
-        if (subway1.getTrainList().get(comboBox44.getSelectedIndex()).getDriverTrain() != null) {
+        if (subway21451730VejarBranada1.getTrainList().get(comboBox44.getSelectedIndex()).getDriverTrain() != null) {
             JOptionPane.showMessageDialog(null, "A este tren ya le fue asignado conductor", "Información", JOptionPane.INFORMATION_MESSAGE);
         } else {
             String hora = textField4.getText();
             try {
                 Date tiempoDePartidaDriver = formatoHora.parse(hora);
-                subway1.assignDriverToTrain(subway1.getTrainList().get(comboBox44.getSelectedIndex()),subway1.getDriverListSubway().get(comboBox43.getSelectedIndex()),tiempoDePartidaDriver,subway1.BuscarStationPorId(comboBox41.getSelectedIndex()),subway1.BuscarStationPorId(comboBox42.getSelectedIndex()));
+                subway21451730VejarBranada1.assignDriverToTrain(subway21451730VejarBranada1.getTrainList().get(comboBox44.getSelectedIndex()), subway21451730VejarBranada1.getDriverListSubway().get(comboBox43.getSelectedIndex()),tiempoDePartidaDriver, subway21451730VejarBranada1.BuscarStationPorId(comboBox41.getSelectedIndex()), subway21451730VejarBranada1.BuscarStationPorId(comboBox42.getSelectedIndex()));
                 JOptionPane.showMessageDialog(null, "Asignado correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
             } catch (ParseException r) {
                 r.printStackTrace();
@@ -1314,7 +1316,7 @@ public class mainMenu extends JFrame {
     private void ConfirmarWhereIsTrainID(ActionEvent e) {
         try {
             Date horaFuncion = formatoHora.parse(textField5.getText());
-            String resultado = subway1.whereIsTrain(subway1.getTrainList().get(comboBox30.getSelectedIndex()),horaFuncion);
+            String resultado = subway21451730VejarBranada1.whereIsTrain(subway21451730VejarBranada1.getTrainList().get(comboBox30.getSelectedIndex()),horaFuncion);
             JOptionPane.showMessageDialog(null, "La proxima estacion es: " + resultado, "Información", JOptionPane.INFORMATION_MESSAGE);
         } catch (ParseException r) {
             r.printStackTrace();
@@ -1340,7 +1342,7 @@ public class mainMenu extends JFrame {
         try {
 
             Date horaFuncion = formatoHora.parse(textField6.getText());
-            List<Station> resultado = subway1.trainPath(subway1.getTrainList().get(comboBox28.getSelectedIndex()),horaFuncion);
+            List<Station_21451730_VejarBranada> resultado = subway21451730VejarBranada1.trainPath(subway21451730VejarBranada1.getTrainList().get(comboBox28.getSelectedIndex()),horaFuncion);
             StringBuilder Estaciones = new StringBuilder("Estaciones: ");
             for(int i = 0;i<resultado.size();i++){
                 Estaciones.append(resultado.get(i).getName()).append(" --> ");
@@ -1359,7 +1361,7 @@ public class mainMenu extends JFrame {
     private void ConfirmarObjeto1(ActionEvent e) {
         try {
             Date horaFuncion = formatoHora.parse(textField7.getText());
-            String resultado = subway1.whereIsTrain(subway1.getTrainList().get(comboBox45.getSelectedIndex()),horaFuncion);
+            String resultado = subway21451730VejarBranada1.whereIsTrain(subway21451730VejarBranada1.getTrainList().get(comboBox45.getSelectedIndex()),horaFuncion);
             JOptionPane.showMessageDialog(null, "La proxima estacion es: " + resultado, "Información", JOptionPane.INFORMATION_MESSAGE);
         } catch (ParseException r) {
             r.printStackTrace();
@@ -1379,7 +1381,7 @@ public class mainMenu extends JFrame {
     private void ConfirmarTrenObjeto2(ActionEvent e) {
         try {
             Date horaFuncion = formatoHora.parse(textField8.getText());
-            List<Station> resultado = subway1.trainPath(subway1.getTrainList().get(comboBox46.getSelectedIndex()),horaFuncion);
+            List<Station_21451730_VejarBranada> resultado = subway21451730VejarBranada1.trainPath(subway21451730VejarBranada1.getTrainList().get(comboBox46.getSelectedIndex()),horaFuncion);
             StringBuilder Estaciones = new StringBuilder("Estaciones: ");
             for(int i = 0;i<resultado.size();i++){
                 Estaciones.append(resultado.get(i).getName()).append(" --> ");
@@ -1392,13 +1394,13 @@ public class mainMenu extends JFrame {
 
 
     private void ConfirmarLinea1objetoID(ActionEvent e) {
-        if (subway1.getTrainList().get(comboBox50.getSelectedIndex()).getDriverTrain() != null) {
+        if (subway21451730VejarBranada1.getTrainList().get(comboBox50.getSelectedIndex()).getDriverTrain() != null) {
             JOptionPane.showMessageDialog(null, "A este tren ya le fue asignado conductor", "Información", JOptionPane.INFORMATION_MESSAGE);
         } else {
             String hora = textField9.getText();
             try {
                 Date tiempoDePartidaDriver = formatoHora.parse(hora);
-                subway1.assignDriverToTrain(subway1.getTrainList().get(comboBox50.getSelectedIndex()),subway1.getDriverListSubway().get(comboBox49.getSelectedIndex()),tiempoDePartidaDriver,listaStations1.get(comboBox47.getSelectedIndex()),listaStations1.get(comboBox48.getSelectedIndex()));
+                subway21451730VejarBranada1.assignDriverToTrain(subway21451730VejarBranada1.getTrainList().get(comboBox50.getSelectedIndex()), subway21451730VejarBranada1.getDriverListSubway().get(comboBox49.getSelectedIndex()),tiempoDePartidaDriver,listaStations1.get(comboBox47.getSelectedIndex()),listaStations1.get(comboBox48.getSelectedIndex()));
                 JOptionPane.showMessageDialog(null, "Asignado correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
             } catch (ParseException r) {
                 r.printStackTrace();
@@ -1407,13 +1409,13 @@ public class mainMenu extends JFrame {
     }
 
     private void ConfirmarObjectLinea2(ActionEvent e) {
-        if (subway1.getTrainList().get(comboBox54.getSelectedIndex()).getDriverTrain() != null) {
+        if (subway21451730VejarBranada1.getTrainList().get(comboBox54.getSelectedIndex()).getDriverTrain() != null) {
             JOptionPane.showMessageDialog(null, "A este tren ya le fue asignado conductor", "Información", JOptionPane.INFORMATION_MESSAGE);
         } else {
             String hora = textField10.getText();
             try {
                 Date tiempoDePartidaDriver = formatoHora.parse(hora);
-                subway1.assignDriverToTrain(subway1.getTrainList().get(comboBox54.getSelectedIndex()),subway1.getDriverListSubway().get(comboBox53.getSelectedIndex()),tiempoDePartidaDriver,listaStations1.get(comboBox51.getSelectedIndex()),listaStations1.get(comboBox52.getSelectedIndex()));
+                subway21451730VejarBranada1.assignDriverToTrain(subway21451730VejarBranada1.getTrainList().get(comboBox54.getSelectedIndex()), subway21451730VejarBranada1.getDriverListSubway().get(comboBox53.getSelectedIndex()),tiempoDePartidaDriver,listaStations1.get(comboBox51.getSelectedIndex()),listaStations1.get(comboBox52.getSelectedIndex()));
                 JOptionPane.showMessageDialog(null, "Asignado correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
             } catch (ParseException r) {
                 r.printStackTrace();
@@ -1422,13 +1424,13 @@ public class mainMenu extends JFrame {
     }
 
     private void ConfirmarObjetoLinea33(ActionEvent e) {
-        if (subway1.getTrainList().get(comboBox58.getSelectedIndex()).getDriverTrain() != null) {
+        if (subway21451730VejarBranada1.getTrainList().get(comboBox58.getSelectedIndex()).getDriverTrain() != null) {
             JOptionPane.showMessageDialog(null, "A este tren ya le fue asignado conductor", "Información", JOptionPane.INFORMATION_MESSAGE);
         } else {
             String hora = textField11.getText();
             try {
                 Date tiempoDePartidaDriver = formatoHora.parse(hora);
-                subway1.assignDriverToTrain(subway1.getTrainList().get(comboBox58.getSelectedIndex()),subway1.getDriverListSubway().get(comboBox57.getSelectedIndex()),tiempoDePartidaDriver,listaStations1.get(comboBox55.getSelectedIndex()),listaStations1.get(comboBox56.getSelectedIndex()));
+                subway21451730VejarBranada1.assignDriverToTrain(subway21451730VejarBranada1.getTrainList().get(comboBox58.getSelectedIndex()), subway21451730VejarBranada1.getDriverListSubway().get(comboBox57.getSelectedIndex()),tiempoDePartidaDriver,listaStations1.get(comboBox55.getSelectedIndex()),listaStations1.get(comboBox56.getSelectedIndex()));
                 JOptionPane.showMessageDialog(null, "Asignado correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
             } catch (ParseException r) {
                 r.printStackTrace();
@@ -1437,13 +1439,13 @@ public class mainMenu extends JFrame {
     }
 
     private void ConfirmarObjeto4(ActionEvent e) {
-        if (subway1.getTrainList().get(comboBox62.getSelectedIndex()).getDriverTrain() != null) {
+        if (subway21451730VejarBranada1.getTrainList().get(comboBox62.getSelectedIndex()).getDriverTrain() != null) {
             JOptionPane.showMessageDialog(null, "A este tren ya le fue asignado conductor", "Información", JOptionPane.INFORMATION_MESSAGE);
         } else {
             String hora = textField12.getText();
             try {
                 Date tiempoDePartidaDriver = formatoHora.parse(hora);
-                subway1.assignDriverToTrain(subway1.getTrainList().get(comboBox62.getSelectedIndex()),subway1.getDriverListSubway().get(comboBox61.getSelectedIndex()),tiempoDePartidaDriver,listaStations1.get(comboBox59.getSelectedIndex()),listaStations1.get(comboBox60.getSelectedIndex()));
+                subway21451730VejarBranada1.assignDriverToTrain(subway21451730VejarBranada1.getTrainList().get(comboBox62.getSelectedIndex()), subway21451730VejarBranada1.getDriverListSubway().get(comboBox61.getSelectedIndex()),tiempoDePartidaDriver,listaStations1.get(comboBox59.getSelectedIndex()),listaStations1.get(comboBox60.getSelectedIndex()));
                 JOptionPane.showMessageDialog(null, "Asignado correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
             } catch (ParseException r) {
                 r.printStackTrace();
